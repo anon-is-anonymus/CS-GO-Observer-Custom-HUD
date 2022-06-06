@@ -42,7 +42,7 @@
 }
 
 #bomb_container{
-	margin-right: 350px;
+	margin-right: 560px;
 	margin-left: 52%;
 	margin-top: 80px;
 	padding: 5px;
@@ -50,13 +50,14 @@
 }
 
 #bomb_img{
-	width: 20px;
+	width: 10px;
 	height: 10px;
 	background-image:url('/files/img/elements/bomb.png');
 }
 
 #bomb_timer{
- 	width:90%;
+	float: right;
+ 	width:80%;
  	height:10px;
 	background-color:red;
 }
