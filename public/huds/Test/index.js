@@ -215,7 +215,7 @@ function updatePage(data) {
     var matchup = data.getMatchType();
     var match = data.getMatch();
     if(matchup && matchup.toLowerCase() != "none"){
-        var block = $("div class='block'></div>");
+        var block = $("<div class='block'></div>");
         var left_bl = $("<div></div>");
         var right_bl = $("<div></div>");
         for(var x = 0; x < (matchup == "bo5" ? 3 : 2); x ++){

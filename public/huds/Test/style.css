@@ -10,59 +10,65 @@
 		background-color: rgba(0, 0, 0, 0);
 	}
 	#defuser {
-  width:500px;
-  height:178px;
-  background-image:url("/files/img/elements/defusing.png");
-  position:absolute;
-  left:-274px;
-  margin-left:50%;
-  bottom:200px;
-}
-#defuser_title{
-  position:absolute;
-  left:141px;
-  top:41px;
-  height:50px;
-  font-size:30px;
+		width: 380px;
+		height: 10px;
+		position: fixed;
+		right: 50%;
+		margin-right: 12px;
+		margin-top: 80px;
+		padding: 5px;
+		background-color: black;
 }
 #defuse_bar{
-	background:red;
-	width:350px;
-	position:absolute;
-	height:10px;
-	left:133px;
-	top:81px;
+	float: left;
+ 	width:95%;
+ 	height:10px;
+	background-color:blue;
 }
-#defuse_time{
-  position:absolute;
-  left:141px;
-  top:90px;
-  height:50px;
-  font-size:30px;
+#defuse_img{
+	float: right;
+	height: 10px;
+	width: 10px;
+	background-color: black;
+}
+
+#defuse_img > img.defuse{
+	height: 10px;
+	width: 10px;
+	background-size: contain;
+	background-position: center;
+	background-image: url("/files/img/elements/defuse.png");
 }
 
 #bomb_container{
-	width: 450px;
+	width: 380px;
 	height: 10px;
 	position: fixed;
 	left: 50%;
-	margin-left: -60px;
+	margin-left: 8px;
 	margin-top: 80px;
 	padding: 5px;
+	background-color: black;
+}
+
+#bomb_img{
+	height: 10px;
+	width: 10px;
 	background-color: black;
 }
 
 #bomb_img > img.bomb{
 	height: 10px;
 	width: 10px;
+	background-size: contain;
+	background-position: center;
 	background-image: url("/files/img/elements/bomb.png");
-	background-color: white;
 }
 
 #bomb_timer{
 	margin-top: -10px;
 	float: right;
- 	width:90%;
+ 	width:95%;
  	height:10px;
 	background-color:red;
 }
@@ -133,7 +139,7 @@
 		margin-top: -10px;
 	}
 
-	#player-container {
+#player-container {
 		position: fixed;
 		bottom: 100px;
 		font-family: 'Saira Semi Condensed', sans-serif;
@@ -535,7 +541,7 @@
 
 	.player {
 		background-color: rgba(0, 0, 0, 0.65);
-		width: 300px;
+		width: 410px;
 		height: 63px;
 		margin-bottom: 4px;
 	}
@@ -582,9 +588,16 @@
 	}
 
 	.stat_t {
+		background: rgba(0, 0, 0, 0.65);
 		float: right;
 		height: 100%;
 		width: 115px;
+	}
+	#left > .player > .bar1 >.stat_t, #left > .player > .bottom_bar >.stat_t{
+		background: linear-gradient(to right, rgba(0, 0, 0, 0.65), rgba(0, 0, 0, 0.3));
+	}
+	#right > .player > .bar1 >.stat_t, #right > .player > .bottom_bar >.stat_t{
+		background: linear-gradient(to left, rgba(0, 0, 0, 0.65), rgba(0, 0, 0, 0.3));
 	}
 	#left > .player{
 		background: linear-gradient(to right, rgba(0, 0, 0, 0.65) 295px, rgba(0, 0, 0, 0.0) 295px);
@@ -802,9 +815,8 @@
 		height: 100px;
 		position: fixed;
 		top: 17px;
-
+		margin-left: -402px;
 		left: 50%;
-		margin-left: -400px;
 	}
 
 	#match_teams {
@@ -814,6 +826,8 @@
 		background: black;
 	}
 	#team_name{
+		margin-right: 20px;
+		margin-left: 20px;
 		text-shadow: 0 0 10px black;
 	}
 
@@ -887,7 +901,7 @@
 		top: 0px;
 		position: fixed;
 		left: 50%;
-		margin-left: -400px;
+		margin-left: -402px;
 		background-color: black;
 		width:800px;
 		text-align:center;
@@ -939,10 +953,9 @@
 	}
 	#team_logo > img{
 		position: absolute;
-		margin-top:8px;
 		max-height: 80%;
 		max-width: 100%;
-		margin: auto;
+		margin-top: 7px;
 		top: 0;
 		left: 0;
 		right: 0;
