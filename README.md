@@ -1,3 +1,5 @@
+# Currently trying to make it look and feel like ESL's HUD cos I think that's the best one
+
 # DEPRECATED - USE [LEXOGRINE HUD MANAGER](https://github.com/lexogrine/hud-manager)
 
 # CS:GO Observer Custom HUD
