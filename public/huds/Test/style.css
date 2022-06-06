@@ -52,10 +52,11 @@
 	background-color: black;
 }
 
-#bomb_img{
-	width: 10px;
+#bomb_img > img.bomb{
 	height: 10px;
-	background-image:url('/files/img/elements/bomb.png');
+	width: 10px;
+	background-image: url("/files/img/elements/bomb.png");
+	background-color: white;
 }
 
 #bomb_timer{
@@ -897,6 +898,7 @@
 		width:12px;
 		height:12px;
 		margin-top: 10px;
+		margin-left: 15px;
 		margin-right: 15px;
 		background-color: rgba(211,211,211,0.4);
 	}
@@ -918,11 +920,11 @@
 		float:left;
 	}
 	#team_1 > #team_score{
-		margin-right:40px;
+		margin-right:20px;
 		float:right;
 	}
 	#team_2 > #team_score{
-		margin-left:40px;
+		margin-left:20px;
 		float:left;
 	}
 	#team_logo{

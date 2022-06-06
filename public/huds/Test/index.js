@@ -170,7 +170,8 @@ var isDefusing = false;
 
 var bomb_time,
     bomb_timer,
-    bomb_timer_css;
+    bomb_timer_css,
+    bomb_container_css;
 bomb_time = 0;
 function bomb(time) {
     if (Math.pow((time - bomb_time), 2) > 1) {
@@ -178,11 +179,14 @@ function bomb(time) {
         bomb_time = parseFloat(time);
         if (bomb_time > 0) {
             bomb_timer = setInterval(function () {
+                bomb_container_css = {
+                    display: "block"
+                }
                 bomb_timer_css = {
                     display: "block",
-                    width: bomb_time * 100 / 40 + "%"
+                    width: bomb_time * 90 / 40 + "%"
                 }
-                console.log(bomb_timer_css);
+                $("#bomb_container").css(bomb_container_css);
                 $("#bomb_timer").css(bomb_timer_css);
                 bomb_time = bomb_time - 0.01;
             }, 10);
@@ -193,6 +197,7 @@ function bomb(time) {
 }
 function resetBomb() {
     clearInterval(bomb_timer);
+    $("#bomb_container").css("display", "none");
     $("#bomb_timer").css("display", "none");
 }
 
@@ -270,8 +275,8 @@ function updatePage(data) {
         teams.left.side = left.side || null;
         teams.right.side = right.side || null;
 
-        teams.left.name = team_one.team_name || left.name;
-        teams.right.name = team_two.team_name || right.name;
+        teams.left.name = team_one.short_name || left.name;
+        teams.right.name = team_two.short_name || right.name;
 
         if(teams.left.score !== undefined && teams.right.score !== undefined){
             if(left.score > teams.left.score){
