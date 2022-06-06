@@ -16,7 +16,7 @@ html
         #header
           #match_info Best Of 3
           #match_teams
-            #round_info(style='height: auto;')
+            #round_info(style='height: 55px;')
               #team_1.team_info(style='height: 100%;')
                 #match_one_info
                   .block
@@ -33,13 +33,16 @@ html
                 #team_name Team 2
                 #team_logo
                   img#team_2_logo
-              #round_counter Round 0 / 30
-              #time_counter 1:55
+              #per_round_info
+                #round_counter Round 0 / 30
+                #time_counter 1:55
         #bomb_container
           #bomb_img
             img.bomb
+          #bomb_background
           #bomb_timer
         #defuser
+          #defuse_background
           #defuse_bar
           #defuse_img
             img.defuse
