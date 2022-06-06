@@ -18,7 +18,7 @@
 		margin-right: 12px;
 		margin-top: 85px;
 		padding: 5px;
-		background-color: black;
+		background-color: #212121;
 }
 #defuse_background{
 	position:absolute;
@@ -61,7 +61,7 @@
 	margin-left: 8px;
 	margin-top: 85px;
 	padding: 5px;
-	background-color: black;
+	background-color: #212121;
 }
 #bomb_background{
 	position:absolute;
@@ -766,12 +766,12 @@
 		max-height: 100%;
 	}
 	.equip_bar>.moneys {
-		color: #00b400;
+		color: #30914c;
 		text-shadow: 0px 0px 10px black;
 		font-weight: bold;
 	}
 	.equip_bar>.moneys.low{
-		color:#ff0000;
+		color:#30914c;
 	}
 
 	.img-hor {
@@ -818,29 +818,33 @@
 		width: 100%;
 		margin-top: 10px;
 		height: 55px;
-		background: black;
+		background: #212121;
 	}
 	#team_name{
+		color: white;
 		width: 255px;
 		display: flex;
 		text-align: center;
 		justify-content: center;
 		align-items: center;
 		height: 55px;
-		text-shadow: 0 0 10px black;
 	}
 
 	#per_round_info{
+		display: flex;	
 		margin-left: 360px;
 		width: 80px;
 		height: 55px;
-		background-color: #171717;
+		background-color: #212121;
+		align-content: center;
+		flex-wrap: wrap;
+		justify-content: center;
+		align-items: center;
 	}
 
 	#time_counter {
 		font-size: 25px;
-		margin-top: -5px;
-		margin-left: 12.5px;
+		margin-top: -7px;
 		font-weight: bold;
 		width: 55px;
 		height: 35px;
@@ -848,7 +852,7 @@
 	}
 
 	#round_counter {
-		margin-left: 5px;
+		margin-top: 2.5px;
 		font-size: 12px;
 		width: 70px;
 		height: 20px;
@@ -878,10 +882,10 @@
 		float: right;
 	}
 	#team_score{
-		margin-top:5px;
+		background-color: #212121;
 	}
 	#team_1 > #team_name{
-		background-color: #00a0ff;
+		background-image: linear-gradient(#00a0ff,#0267a3);
 		float:right;
 	}
 	#avatar_container img {
@@ -891,7 +895,7 @@
 		margin-left:1px;
 	}
 	#match_one_info{
-		background-color: #00a0ff;
+		background-image: linear-gradient(#00a0ff,#0267a3);
 		display: flex;
 		align-items: center;
 		height: 55px;
@@ -904,7 +908,7 @@
 		justify-content: center;
 	}
 	#match_two_info{
-		background-color: #ffa000;
+		background-image: linear-gradient(#ffa000, #ab6d02);
 		display: flex;
 		align-items: center;
 		height: 55px;
@@ -921,13 +925,17 @@
 		position: fixed;
 		left: 50%;
 		margin-left: -402px;
-		background-color: black;
+		background-color: #212121;
 		width:800px;
 		text-align:center;
 		font-weight:500;
 	}
 	
 	.block{
+		margin-right: 5px;
+		margin-left: 5px;
+		margin-bottom: 5px;
+		margin-top: 5px;
 		width:15px;
 		height:6px;
 		background-color: rgba(0, 0, 0, 0.6);
@@ -946,14 +954,13 @@
 	}
 
 	#team_2 > #team_name{
-		background-color: #ffa000;
+		background-image: linear-gradient(#ffa000, #ab6d02);
 		float:left;
 	}
 	#team_1 > #team_score{
 		margin: auto;
 		width: 30px;
 		height: 55px;
-		background-color: #171717;
 		float:right;
 		display: flex;
 		text-align: center;
@@ -964,7 +971,6 @@
 		margin: auto;
 		width: 30px;
 		height: 55px;
-		background-color: #171717;
 		float:left;
 		display: flex;
 		text-align: center;
@@ -981,14 +987,12 @@
 	}
 	#team_logo > img{
 		position: absolute;
-		max-height: 80%;
+		max-height: 100%;
 		max-width: 100%;
-		margin-top: 7px;
 		top: 0;
 		left: 0;
 		right: 0;
 		bottom: 0;
-		filter: drop-shadow(3px 3px 4px black);
 		
 	}
 	#team_1>#team_logo{
