@@ -12,31 +12,34 @@ html
     link(rel='stylesheet', href=css)
   body
     section
-      #bomb_timer
-      #header
-        #match_teams
-          #round_info(style='height: auto;')
-            #team_1.team_info(style='height: 100%;')
-              #match_one_info
-                .block
-                .block
-              #team_score 0
-              #team_logo
-                #team_flag
-                img#team_1_logo
-              #team_name Team 1
-            #team_2.team_info(style='height: 100%;')
-              #match_two_info
-                .block
-                .block
-              #team_score 0
-              #team_logo
-                #team_flag
-                img#team_2_logo
-              #team_name Team 2
-            #time_counter 1:55
-            #round_counter Round 0 / 30
-            #match_info Best Of 3
+      #top_hud_container
+        #header
+          #match_info Best Of 3
+          #match_teams
+            #round_info(style='height: auto;')
+              #team_1.team_info(style='height: 100%;')
+                #match_one_info
+                  .block
+                  .block
+                #team_score 0
+                #team_logo
+                  #team_flag
+                  img#team_1_logo
+                #team_name Team 1
+              #team_2.team_info(style='height: 100%;')
+                #match_two_info
+                  .block
+                  .block
+                #team_score 0
+                #team_logo
+                  #team_flag
+                  img#team_2_logo
+                #team_name Team 2
+              #time_counter 1:55
+              #round_counter Round 0 / 30
+        #bomb_container
+          #bomb_img
+          #bomb_timer
       #defuser
         #defuser_title
           | DEFUSE TIME
