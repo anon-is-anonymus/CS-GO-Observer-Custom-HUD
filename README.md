@@ -1,6 +1,7 @@
 Currently trying to make it look and feel like ESL's HUD cos I think that's the best one.
 
 Work done so far: Top Hud 80%
+![image](https://user-images.githubusercontent.com/68243858/172266276-6707d6b5-d4f8-43fb-84d0-49856d7d2aa7.png)
 
 Work left to do: Observed player bar, side player bars, team equipment value + round loss bonus (under top hud)
 
