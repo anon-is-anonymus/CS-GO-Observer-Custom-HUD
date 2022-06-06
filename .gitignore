@@ -69,3 +69,6 @@ typings/
 .history
 
 # End of https://www.gitignore.io/api/node,visualstudiocode
+
+### The HUD Thingy 
+csgo-overlay-for-custom-hud/
