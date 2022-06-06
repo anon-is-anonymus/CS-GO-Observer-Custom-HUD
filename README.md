@@ -1,4 +1,8 @@
-# Currently trying to make it look and feel like ESL's HUD cos I think that's the best one
+Currently trying to make it look and feel like ESL's HUD cos I think that's the best one.
+
+Work done so far: Top Hud 80%
+
+Work left to do: Observed player bar, side player bars, team equipment value + round loss bonus (under top hud)
 
 # DEPRECATED - USE [LEXOGRINE HUD MANAGER](https://github.com/lexogrine/hud-manager)
 
