@@ -182,6 +182,7 @@ function bomb(time) {
                     display: "block",
                     width: bomb_time * 100 / 40 + "%"
                 }
+                console.log(bomb_timer_css);
                 $("#bomb_timer").css(bomb_timer_css);
                 bomb_time = bomb_time - 0.01;
             }, 10);
