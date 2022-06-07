@@ -18,9 +18,9 @@ function fillObserved(player) {
         : (teams.right.flag || ""));
     
     if(flag){
-        $("#current_nick").css("background-image", "url(/files/img/flags/" + flag + ".png)").removeClass("no-flag");
+        $("#flag").css("background-image", "url(/files/img/flags/" + flag + ".png)").removeClass("no-flag");
     } else {
-        $("#current_nick").css("background-image", "").addClass("no-flag");
+        $("#flag").css("background-image", "").addClass("no-flag");
     }
 
     $("#kills_count").html(statistics.kills + " K /");
@@ -110,6 +110,9 @@ function fillPlayer(player,nr, side, max){
 
     $top.find("#hp_p").text(statistics.health);
     $top.find("#number").text(player.observer_slot);
+    if(player.observer_slot == 10){
+        $top.find("#number").text(0)
+    }
     $top.find(".hp_bar").css("background", gradient);
 
     $bottom.find(".kills").text(statistics.kills);
@@ -327,10 +330,6 @@ function updatePage(data) {
                 loss_bonusT = 3400;
             }
         }
-        console.log(loss_bonusCT)
-        console.log(loss_bonusT)
-        console.log(team_ct.consecutive_round_losses)
-        console.log(team_t.consecutive_round_losses)
         
         teams.left.score = left.score;
         teams.right.score = right.score;
@@ -431,6 +430,7 @@ function updatePage(data) {
         fillObserved(observed);
     }
 
+
     //EVERY OTHER PLAYER
     if (players) {
         
@@ -477,7 +477,7 @@ function updatePage(data) {
 
         if (phase.phase == "freezetime" || phase.phase.substring(0,7) == "timeout") {
             if (phase.phase_ends_in > 3) {
-                if ($(".money").css("opacity") == 0) {
+                if ($("#economy").css("opacity") == 0) {
                     $(".money").fadeTo(1000, 1);
                     $("#economy").fadeTo(1000,1);
                     $("#stats-container").fadeTo(1000,1);
@@ -486,7 +486,7 @@ function updatePage(data) {
 
                 }
             } else {
-                if ($(".money").css("opacity") == 1) {
+                if ($("#economy").css("opacity") == 1) {
                     $(".money").fadeTo(1000, 0);
                     $(".stat_t").fadeTo(1000, 0);
                     $("#stats-container").fadeTo(1000,0);
@@ -499,7 +499,7 @@ function updatePage(data) {
                 }
 
         } else {
-            if ($(".money").css("opacity") == 1) {
+            if ($("#economy").css("opacity") == 1) {
                 $(".money").fadeTo(1000, 0);
                 $(".stat_t").fadeTo(1000, 0);
                 $("#stats-container").fadeTo(1000,0);

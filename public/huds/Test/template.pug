@@ -95,44 +95,54 @@ html
             #stat_money.st_right
               | -$1000
       #player-container
-        #avatar_container(style="width:139px; height:139px; margin-top:-70px; float:left;")
         #container2(style="width:781px; margin-left:139px;")
-          #first_row
+          #first_row 
+            #avatar_container(style="width:139px; height:139px; margin-top:-140px; float:left;")
             #current_nick
               | oszten
-            #ammo
-              #clip-text.clip 100
-              #reserve-text.reserve 100
+            #flag
+          #second_row 
             #health_armor
               #health-text 100
               #armor-text 100
-            #nades
-              img(src='/files/img/grenades/weapon_flashbang.png', style='max-height: 35px; width:auto; filter: invert(100%); float:right; margin-right:10px;')
-              img(src='/files/img/grenades/weapon_smokegrenade.png', style='max-height: 35px; width:auto; filter: invert(100%); float:right; margin-right:10px;')
-              img(src='/files/img/grenades/weapon_hegrenade.png', style='max-height: 35px; width:auto; filter: invert(100%); float:right; margin-right:10px;')
-          #second_row
-            #nick_also.inlining
-              | NICK
+            .kills
             #stats.inlining
               #kills_count.inlining 13
               #assist_count.inlining 13
               #death_count.inlining 13
+            #bomb 
+            #nades
+              img(src='/files/img/grenades/weapon_flashbang.png', style='max-height: 35px; width:auto; filter: invert(100%); float:right; margin-right:10px;')
+              img(src='/files/img/grenades/weapon_smokegrenade.png', style='max-height: 35px; width:auto; filter: invert(100%); float:right; margin-right:10px;')
+              img(src='/files/img/grenades/weapon_hegrenade.png', style='max-height: 35px; width:auto; filter: invert(100%); float:right; margin-right:10px;')
+          //- #first_row
+          //-   #avatar_container(style="width:139px; height:139px; margin-top:-140px; float:left;")
+          //- #second_row
+          //-   #current_nick
+          //-     | oszten
+          //-   #ammo
+          //-     #clip-text.clip 100
+          //-     #reserve-text.reserve 100
+          //-   #health_armor
+          //-     #health-text 100
+          //-     #armor-text 100
+          //-   #nades
+          //-     img(src='/files/img/grenades/weapon_flashbang.png', style='max-height: 35px; width:auto; filter: invert(100%); float:right; margin-right:10px;')
+          //-     img(src='/files/img/grenades/weapon_smokegrenade.png', style='max-height: 35px; width:auto; filter: invert(100%); float:right; margin-right:10px;')
+          //-     img(src='/files/img/grenades/weapon_hegrenade.png', style='max-height: 35px; width:auto; filter: invert(100%); float:right; margin-right:10px;')
+          //- #third_row
+          //-   #nick_also.inlining
+          //-     | NICK
+          //-   #stats.inlining
+          //-     #kills_count.inlining 13
+          //-     #assist_count.inlining 13
+          //-     #death_count.inlining 13
       #left.team
-        .money
-          img.invert(src='/files/img/elements/team.png', style='max-height: 70%; margin-top:10px; margin-left:10px; float:left;')
-          div(style='width:25%; float:left; color: #00b400;  text-shadow: 0 0 8px black;')
-            .first_title_tm Team money:
-            #team_money_1.first_tm(style='font-weight:600') $0
-          img.invert(src='/files/img/elements/eq.png', style='max-height: 70%; margin-top:10px; float:left;')
-          div(style='width:40%; float:left; color: #f7bf16; text-shadow: 0 0 8px black;')
-            .first_title_tm Equipment value:
-            #eq_money_1.first_tm(style='font-weight:600') $0
         #player1.player
           .bar1
             .hp_bar
               #hp_p.hp_el 100
               #bar_username.bar_username undefined
-              #number.number 1
               #weapon_icon.bar_weapon.ct
             .stat_t
               .kills K
@@ -147,12 +157,12 @@ html
             .stat_t
               .kills 0
               .deaths 0
+          #number.number 1
         #player2.player
           .bar1
             .hp_bar
               #hp_p.hp_el 100
               #bar_username.bar_username undefined
-              #number.number 2
               #weapon_icon.bar_weapon.ct
             .stat_t
               .kills K
@@ -167,12 +177,12 @@ html
             .stat_t
               .kills 0
               .deaths 0
+          #number.number 2
         #player3.player
           .bar1
             .hp_bar
               #hp_p.hp_el 100
               #bar_username.bar_username undefined
-              #number.number 3
               #weapon_icon.bar_weapon.ct
             .stat_t
               .kills K
@@ -187,12 +197,12 @@ html
             .stat_t
               .kills 0
               .deaths 0
+          #number.number 3
         #player4.player
           .bar1
             .hp_bar
               #hp_p.hp_el 100
               #bar_username.bar_username undefined
-              #number.number 4
               #weapon_icon.bar_weapon.ct
             .stat_t
               .kills K
@@ -207,12 +217,12 @@ html
             .stat_t
               .kills 0
               .deaths 0
+          #number.number 4
         #player5.player
           .bar1
             .hp_bar
               #hp_p.hp_el 100
               #bar_username.bar_username undefined
-              #number.number 5
               #weapon_icon.bar_weapon.ct
             .stat_t
               .kills K
@@ -227,22 +237,13 @@ html
             .stat_t
               .kills 0
               .deaths 0
+          #number.number 5
       #right.team
-        .money
-          img.invert(src='/files/img/elements/team.png', style='max-height: 70%; margin-top:10px; margin-right:10px; float:right; ')
-          div(style='width:25%; float:right; color: #00b400;  text-shadow: 0 0 8px black; text-align:right;')
-            .first_title_tm(style='width: 300px;') Team money:
-            #team_money_2.first_tm(style='font-weight:600') $0
-          img.invert(src='/files/img/elements/eq.png', style='max-height: 70%; margin-top:10px; margin-right:10px; float:right;')
-          div(style='width:40%; float:right; color: #f7bf16; text-shadow: 0 0 8px black; text-align:right')
-            .first_title_tm(style='width: 300px;') Equipment value:
-            #eq_money_2.first_tm(style='font-weight:600') $0
         #player1.player
           .bar1
             .hp_bar
               #hp_p.hp_el 100
               #bar_username.bar_username undefined
-              #number.number 6
               #weapon_icon.bar_weapon.t
             .stat_t
               .kills K
@@ -257,12 +258,12 @@ html
             .stat_t
               .kills 0
               .deaths 0
+          #number.number 6
         #player2.player
           .bar1
             .hp_bar
               #hp_p.hp_el 100
               #bar_username.bar_username undefined
-              #number.number 7
               #weapon_icon.bar_weapon.t
             .stat_t
               .kills K
@@ -277,12 +278,12 @@ html
             .stat_t
               .kills 0
               .deaths 0
+          #number.number 7
         #player3.player
           .bar1
             .hp_bar
               #hp_p.hp_el 100
               #bar_username.bar_username undefined
-              #number.number 8
               #weapon_icon.bar_weapon.t
             .stat_t
               .kills K
@@ -297,12 +298,12 @@ html
             .stat_t
               .kills 0
               .deaths 0
+          #number.number 8
         #player4.player
           .bar1
             .hp_bar
               #hp_p.hp_el 100
               #bar_username.bar_username undefined
-              #number.number 9
               #weapon_icon.bar_weapon.t
             .stat_t
               .kills K
@@ -317,12 +318,12 @@ html
             .stat_t
               .kills 0
               .deaths 0
+          #number.number 9
         #player5.player
           .bar1
             .hp_bar
               #hp_p.hp_el 100
               #bar_username.bar_username undefined
-              #number.number 0
               #weapon_icon.bar_weapon.t
             .stat_t
               .kills K
@@ -337,3 +338,4 @@ html
             .stat_t
               .kills 0
               .deaths 0
+          #number.number 0
