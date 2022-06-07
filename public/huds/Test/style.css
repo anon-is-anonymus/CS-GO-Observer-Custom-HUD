@@ -15,9 +15,9 @@
 		height: 10px;
 		position: fixed;
 		right: 50%;
-		margin-right: 12px;
+		margin-right: 22px;
 		margin-top: 85px;
-		padding: 5px;
+		padding: 10px;
 		background-color: #212121;
 }
 #defuse_background{
@@ -25,7 +25,7 @@
 	position:fixed;
 	z-index: 1;
 	float: left;
- 	width:361px;
+ 	width:342px;
  	height:10px;
 	background-color:darkgrey;
 }
@@ -57,22 +57,23 @@
 }
 
 #bomb_container{
+	z-index: 0;
 	width: 380px;
 	height: 10px;
 	position: fixed;
 	left: 50%;
-	margin-left: 8px;
+	margin-left: 18px;
 	margin-top: 85px;
-	padding: 5px;
+	padding: 10px;
 	background-color: #212121;
 }
 #bomb_background{
-	position:absolute;
+	position:fixed;
 	z-index: 1;
 	float: right;
-	margin-left: 19px;
-	margin-top: -10px;
- 	width:361px;
+	margin-left: 18px;
+	margin-top: -15px;
+ 	width:342px;
  	height:10px;
 	background-color:darkgrey;
 }
@@ -85,6 +86,7 @@
 }
 
 #bomb_img > img.bomb{
+	margin-top: -5px;
 	height: 10px;
 	width: 10px;
 	background-size: contain;
@@ -95,7 +97,7 @@
 #bomb_timer{
 	position:sticky;
 	z-index: 2;
-	margin-top: -10px;
+	margin-top: -15px;
 	float: right;
  	width:95%;
  	height:10px;
@@ -448,26 +450,31 @@
 		background-color: #c19511 !important;
 	}
 
+	#team_logo_bottom_hud{
+		height: 55px;
+		width: 55px;
+		margin-left: 0px;
+		margin-top: 0px;
+	}
+
 	#current_nick {
 		text-align: center;
-		width: auto;
+		width: 200px;
 		font-family: 'Saira Semi Condensed', sans-serif;
 		font-weight: 600;
 		font-size: 25px;
-		margin-top: -97px;
-		margin-left: 110px;
-		padding-right: 10px;
-		overflow:hidden;
+		margin-top: 10px;
+		padding-right: 50px;
 	}
 	#current_nick.no-flag{
 		padding-right:0px;
 	}
 
 	#bottom_hud > #first_row > #flag{
-		height: 64px;
-		width: 64px;
-		margin-left: 370px;
-		margin-top: -50px;
+		height: 55px;
+		width: 55px;
+		margin-left: 385px;
+		margin-top: -60px;
 	}
 
 	#kills{
@@ -483,7 +490,7 @@
 		height: 100%;
 		width: 190px;
 		float: left;
-		margin-top: 0px;
+		margin-top: 3px;
 		display: flex;
 		align-content: center;
 		justify-content: space-around;
@@ -493,42 +500,24 @@
 		width: 100%;
 	}
 
-	.st_left {
-		float: left;
-		text-align: left;
-	}
-
-	.st_right {
-		float: right;
-		text-align: right;
-	}
-
-	.stats_player {
-		height: 63px;
-		width: 100%;
-		/*background-color:black;*/
-		margin-bottom: 4px;
-		display: inline-block;
-	}
 	#stats-container {
 		position: absolute;
 		bottom: 0px;
 		background: linear-gradient(to right, rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0) 100px, rgba(0, 0, 0, 0) 1000px, rgba(0, 0, 0, 0.3));
 		font-family: 'Saira Semi Condensed', sans-serif;
 		left: 975px;
-		margin-bottom: 89px;
 		margin-left: -550px;
 		height: 331px;
-		width: 1085px;
+		width: 1298px;
 		/*opacity: 0;*/
 		/*transform: skewX(40deg);*/
 	}
 
 	#ammo {
-		margin-top: -55px;
+		margin-top: -52.5px;
 		font-family: 'Saira Semi Condensed', sans-serif;
 		height: 100%;
-		width: 125px;
+		width: 120px;
 		float: right;
 	}
 
@@ -543,6 +532,15 @@
 	}
 	#death_count{
 		width: 33.3%;
+	}
+	#kills_hud_count{
+		margin-left: 6px;
+	}
+	#assist_hud_count{
+		margin-left: 5.5px;
+	}
+	#death_hud_count{
+		margin-left: 7.5px;
 	}
 	#stats_container {
 		margin-top: -55px;
@@ -563,6 +561,7 @@
 		position: sticky;
 		width: 200px;
 		align-items: center;
+		margin-top: 3px;
 	}
 
 	#clip-text {
@@ -586,11 +585,11 @@
 		height: 80%;
 		width: 20%;
 		float: right;
-		right: 40%;
+		right: 42.5%;
 	}
 	#nades img {
-		height: 35px;
-        max-height: 35px;
+		height: 25px;
+        max-height: 25px;
         width:auto;
         filter: invert(100%);
         float:right;
@@ -600,7 +599,7 @@
 
 	.team {
 		width: 410px;
-		height: 420px;
+		height: 331px;
 	}
 
 	#left {
@@ -712,11 +711,11 @@
 		width: 40px;
 		height: 100%;
 		text-align: center;
-		margin-left: 20px;
 	}
 
 	#left>.player>.bar1>.hp_bar>.bar_username {
 		float: left;
+		text-align: left;
 		padding-left: 15px;
 		width: 120px;
 		overflow: hidden;
@@ -1043,10 +1042,10 @@
 		background-color: rgba(0, 0, 0, 0.6);
 	}
 	.ct .block.win{
-		background-color:#2aadfa;
+		background-color:yellow;
 	}
 	.t .block.win{
-		background-color:#fcb338;
+		background-color:yellow;
 	}
 	#match_one_info .block{
 		float:right;
@@ -1137,11 +1136,11 @@
 	}
 
 	#first_row{
-		position: sticky;
+		margin-left: 0px;
 		background-color: #212121;
 		width: 450px;
 	}
 
 	#avatar_container{
-		margin-bottom: 50px;
+		padding-bottom: 50px;
 	}
