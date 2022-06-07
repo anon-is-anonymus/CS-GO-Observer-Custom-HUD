@@ -287,7 +287,7 @@ function updatePage(data) {
                 $("#who_won").fadeTo(1000, 1).delay(2000).fadeTo(1000, 0);
             }
         }
-        
+
         var loss_bonusCT
         var loss_bonusT
 
@@ -479,8 +479,10 @@ function updatePage(data) {
             if (phase.phase_ends_in > 3) {
                 if ($(".money").css("opacity") == 0) {
                     $(".money").fadeTo(1000, 1);
+                    $("#economy").fadeTo(1000,1);
                     $("#stats-container").fadeTo(1000,1);
                     $(".stat_t").fadeTo(1000, 1);
+                    $("#loss_bonus").fadeTo(1000,1);
 
                 }
             } else {
@@ -488,6 +490,8 @@ function updatePage(data) {
                     $(".money").fadeTo(1000, 0);
                     $(".stat_t").fadeTo(1000, 0);
                     $("#stats-container").fadeTo(1000,0);
+                    $("#economy").fadeTo(1000,0);
+                    $("#loss_bonus").fadeTo(1000,0);
                     if (observed && observed.steamid != 1) 
                         $("#player-container").fadeTo(1000, 1);
 
@@ -499,6 +503,8 @@ function updatePage(data) {
                 $(".money").fadeTo(1000, 0);
                 $(".stat_t").fadeTo(1000, 0);
                 $("#stats-container").fadeTo(1000,0);
+                $("#economy").fadeTo(1000,0);
+                $("#loss_bonus").fadeTo(1000,0);
                 if (observed && observed.steamid != 1) 
                     $("#player-container").fadeTo(1000, 1);
             }
