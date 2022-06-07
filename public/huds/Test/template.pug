@@ -1,5 +1,6 @@
 html
   head
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.2.1/dist/css/bootstrap.min.css" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
     script(src="/socket.io/socket.io.js")
     script(src="http://code.jquery.com/jquery-2.1.4.min.js")
     script.
@@ -16,36 +17,36 @@ html
         #header
           #match_info Best Of 3
           #match_teams
-            #round_info(style='height: 55px;')
-              #team_1.team_info(style='height: 100%;')
-                #match_one_info
-                  .block
-                  .block
-                #team_score 0
-                #team_name Team 1
-                #team_logo
+            #round_info(style='height: 55px;').container
+              #team_1.team_info(style='height: 100%; width:360px').row
+                #team_logo.col_sm
                   img#team_1_logo
-              #team_2.team_info(style='height: 100%;')
-                #match_two_info
+                #team_name.col Team 1
+                #team_score.col_sm 0
+                #match_one_info.col_sm
                   .block
                   .block
-                #team_score 0
-                #team_name Team 2
-                #team_logo
+              #team_2.team_info(style='height: 100%; width:360px').row
+                #match_two_info.col_sm
+                  .block
+                  .block
+                #team_score.col_sm 0
+                #team_name.col Team 2
+                #team_logo.col_sm
                   img#team_2_logo
               #per_round_info
                 #round_counter Round 0 / 30
                 #time_counter 1:55
         #bomb_container
           #bomb_img
-            img.bomb
+            img.bomb.invert_brightness
           #bomb_background
           #bomb_timer
         #defuser
           #defuse_background
           #defuse_bar
           #defuse_img
-            img.defuse
+            img.defuse.invert_brightness
         #economy
           #left_value
             #eq_money_1.first_tm $0
@@ -96,14 +97,14 @@ html
               | -$1000
       #player-container
         #bottom_hud
-          #first_row(style='height: 55px')
-            #avatar_container(style='height: 55px')
-            //- #team_logo
-            //-   img#team_1_logo
-            //-   img#team_2_logo
-            #current_nick
+          #first_row(style='height: 55px').row
+            #avatar_container(style='height: 55px').col_sm
+            #team_logo_bottom_hud.col_sm
+              img#team_1_logo
+              img#team_2_logo
+            #current_nick.col
               | oszten
-            #flag
+            #flag.col_sm
           #second_row(style='height: 55px')
             #health_armor
               #health-text 100
@@ -112,10 +113,10 @@ html
             #stats_container
               #stats_img
                 #kills_img
-                  img(src='/files/img/death.png', style='max-height:20px; width:auto')
+                  img(src='/files/img/kill.png', style='max-height:20px; width:auto')
                   #kills_hud_count 13
                 #assist_img.img
-                  img(src='/files/img/death.png', style='max-height:20px; width:auto')
+                  img(src='/files/img/assist.png', style='max-height:20px; width:auto')
                   #assist_hud_count 13
                 #death_img.img
                   img(src='/files/img/death.png', style='max-height:20px; width:auto')
@@ -127,28 +128,6 @@ html
             #ammo
               #clip-text.clip 100
               #reserve-text.reserve 100
-          //- #first_row
-          //-   #avatar_container(style="width:139px; height:139px; margin-top:-140px; float:left;")
-          //- #second_row
-          //-   #current_nick
-          //-     | oszten
-          //-   #ammo
-          //-     #clip-text.clip 100
-          //-     #reserve-text.reserve 100
-          //-   #health_armor
-          //-     #health-text 100
-          //-     #armor-text 100
-          //-   #nades
-          //-     img(src='/files/img/grenades/weapon_flashbang.png', style='max-height: 35px; width:auto; filter: invert(100%); float:right; margin-right:10px;')
-          //-     img(src='/files/img/grenades/weapon_smokegrenade.png', style='max-height: 35px; width:auto; filter: invert(100%); float:right; margin-right:10px;')
-          //-     img(src='/files/img/grenades/weapon_hegrenade.png', style='max-height: 35px; width:auto; filter: invert(100%); float:right; margin-right:10px;')
-          //- #third_row
-          //-   #nick_also.inlining
-          //-     | NICK
-          //-   #stats.inlining
-          //-     #kills_count.inlining 13
-          //-     #assist_count.inlining 13
-          //-     #death_count.inlining 13
       #left.team
         #player1.player
           .bar1

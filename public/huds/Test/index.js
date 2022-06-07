@@ -16,7 +16,9 @@ function fillObserved(player) {
     let flag = player.country_code || (right
         ? (teams.left.flag || "")
         : (teams.right.flag || ""));
-    
+    // let logo = player.team || (right
+    //     ? (teams.left.flag || "")
+    //     : (teams.right.flag || ""));
     if(flag){
         $("#flag").css("background-image", "url(/files/img/flags/" + flag + ".png)").removeClass("no-flag");
     } else {
@@ -295,7 +297,6 @@ function updatePage(data) {
 
         var loss_bonusCT
         var loss_bonusT
-        console.log(map)
         if(map.round == 0){
             loss_bonusCT = 1900;
             loss_bonusT = 1900;
