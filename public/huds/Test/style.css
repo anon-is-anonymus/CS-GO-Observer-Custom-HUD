@@ -923,7 +923,7 @@
 	}
 	#team_name{
 		color: white;
-		width: 275px;
+		width: 255px;
 		display: flex;
 		text-align: center;
 		justify-content: center;
@@ -1041,10 +1041,10 @@
 		background-color: rgba(0, 0, 0, 0.6);
 	}
 	.ct .block.win{
-		background-color:#2aadfa;
+		background-color:#FFFF00;
 	}
 	.t .block.win{
-		background-color:#fcb338;
+		background-color:#FFFF00;
 	}
 	#match_one_info .block{
 		float:right;
