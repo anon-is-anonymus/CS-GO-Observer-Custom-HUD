@@ -237,9 +237,6 @@
 		margin-left: -390.5px;
 		width: 781px;
 	}
-	#player-container.ct #container2 #third_row{
-		background-color:#00a0ff;
-	}
 	#player-container.t #container2 #second_row #current_nick{
 		color: #ffa000;
 	}
@@ -322,15 +319,14 @@
 	}
 
 	#health-text {
+		position: relative;
 		background-image: url("/files/img/hp.png");
 		background-repeat: no-repeat;
 		background-size: 30%;
 		background-position: left center;
-		padding-left: 40px;
-		display: inline-block;
-		font-size: 40px;
+		padding-left: 30px;
+		font-size: 35px;
 		font-weight: 900;
-		width: 55px;
 	}
 
 	#health-bar {
@@ -370,16 +366,14 @@
 	}
 
 	#armor-text {
-		
+		position: relative;
 		background-repeat: no-repeat;
-		background-size: 29%;
+		background-size: 25%;
 		background-position: left 40%;
-		display: inline-block;
 		font-size: 35px;
-		margin-left: 20px;
-		padding-left: 40px;
+		padding-left: 30px;
 		font-weight: 900;
-		height: 49px;
+		height: 55px;
 	}
 	#bar_username{
 		color:white;
@@ -437,9 +431,9 @@
 	}
 
 	#second_row {
+		position: absolute;
 		background-color:black;
-		height: 70%;
-		padding-left: 15px;
+		height: 55px;
 		width: 600px;
 	}
 
@@ -451,46 +445,42 @@
 		background-color: #c19511 !important;
 	}
 
-	#third_row {
-		height: 30%;
-		width: 600px;
-		padding-left: 15px;
-		text-shadow: 2px 2px 8px black;
-	}
-
 	#current_nick {
-		width: 25%;
+		width: 200px;
 		font-family: 'Saira Semi Condensed', sans-serif;
 		font-weight: 600;
-		font-size: 30px;
-		display: inline-block;
-		white-space: nowrap;
-		
-		background-repeat: no-repeat;
-		background-position: 0 65%;
-		background-size: 27px;
-		padding-left:36px;
-		float:left;
+		font-size: 25px;
+		margin-top: -97px;
+		margin-left: 110px;
 		overflow:hidden;
 	}
 	#current_nick.no-flag{
-		padding-left:0px;
+		padding-right:0px;
 	}
 
-
-	#current_nick::before {
-		width: 27px;
-		height: 20px;
-		margin-right: 10px;
+	#bottom_hud > #first_row > #flag{
+		height: 64px;
+		width: 64px;
+		margin-left: 200px;
+		margin-top: -50px;
 	}
 
+	#kills{
+		text-align: center;
+		margin-left: 200px;
+		height: 55px;
+		width: 55px;
+	}
 
 	#health_armor {
 		font-family: 'Saira Semi Condensed', sans-serif;
 		height: 100%;
 		width: 190px;
-		float: right;
-		    margin-top: 0px;
+		float: left;
+		margin-top: 0px;
+		display: flex;
+		align-content: center;
+		justify-content: space-around;
 	}
 	#round_stats {
 		height: 85px;
@@ -543,15 +533,6 @@
 		margin-top: -44px;
 		float: right;
 		width: 200px;
-	}
-
-	#health-text {
-		display: inline-block;
-		font-size: 30px;
-		font-weight: 900;
-		height: 49px;
-		width: 55px;
-		margin-bottom: 15px;
 	}
 
 	#clip-text {
@@ -975,10 +956,9 @@
 		float:right;
 	}
 	#avatar_container img {
-		width:139px;
-		height:139px;
-		margin-top:1px;
-		margin-left:1px;
+		width:100px;
+		height:100px;
+		margin-top: -50px;
 	}
 	#match_one_info{
 		background-image: linear-gradient(#00a0ff,#0267a3);
@@ -1112,4 +1092,21 @@
 	}
 	#who_won div {
 		display:inline-block;
+	}
+
+	#bottom_hud{
+		height: 110px;
+		width:600px;
+		margin-left:139px;
+	}
+
+	#first_row{
+		position: sticky;
+		background-color: black;
+		width: 600px;
+		height: 40px;
+	}
+
+	#avatar_container{
+		margin-bottom: 50px;
 	}

@@ -95,22 +95,26 @@ html
             #stat_money.st_right
               | -$1000
       #player-container
-        #container2(style="width:781px; margin-left:139px;")
-          #first_row 
-            #avatar_container(style="width:139px; height:139px; margin-top:-140px; float:left;")
+        #bottom_hud
+          #first_row(style='height: 55px')
+            #avatar_container(style='height: 55px')
+            //- #team_logo
+            //-   img#team_1_logo
+            //-   img#team_2_logo
             #current_nick
               | oszten
             #flag
-          #second_row 
+          #second_row(style='height: 55px')
             #health_armor
               #health-text 100
               #armor-text 100
-            .kills
+            #kills
             #stats.inlining
               #kills_count.inlining 13
               #assist_count.inlining 13
               #death_count.inlining 13
-            #bomb 
+            .bomb_defuse.t
+                img.invert_brightness(src='/files/img/elements/bomb.png')
             #nades
               img(src='/files/img/grenades/weapon_flashbang.png', style='max-height: 35px; width:auto; filter: invert(100%); float:right; margin-right:10px;')
               img(src='/files/img/grenades/weapon_smokegrenade.png', style='max-height: 35px; width:auto; filter: invert(100%); float:right; margin-right:10px;')

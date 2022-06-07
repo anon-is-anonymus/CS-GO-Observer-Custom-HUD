@@ -97,7 +97,7 @@ function fillPlayer(player,nr, side, max){
     let team = player.team.toLowerCase();
 
     let health_color = statistics.health <= 20 ? "#ff0000" : team == "ct" ? "#00a0ff":"#ffa000";
-
+    let $bottom_hud = $("#bottom_hud").find("#second_row")
     let $player = $("#"+side).find("#player"+(nr+1));
 
     let $bottom = $player.find(".bottom_bar");
@@ -134,6 +134,7 @@ function fillPlayer(player,nr, side, max){
             "float": side
         };
         $bottom.find("#weapon_icon").prepend($("<img />").attr("src", "/files/img/death.png").addClass("death").css("float", side)).prepend($("<div></div>").text(statistics.round_kills).css(img_css));
+        $bottom_hud.find("#kills").prepend($("<img />").attr("src", "/files/img/death.png").addClass("death").css("float", side)).prepend($("<div></div>").text(statistics.round_kills).css(img_css));
     }
 
     for(let key in weapons){
