@@ -17,24 +17,24 @@ html
         #header
           #match_info Best Of 3
           #match_teams.container
-            #round_info(style='height: 55px;').row
-              #team_1.team_info(style='height: 100%;')
-                #match_one_info.col
-                  .block
-                  .block
-                #team_score.col 0
-                #team_name.col Team 1
-                #team_logo.col
+            #round_info(style='height: 55px;')
+              #team_1.team_info(style='height: 100%; width:360px').row
+                #team_logo.col_sm
                   img#team_1_logo
-              #team_2.team_info(style='height: 100%;')
-                #match_two_info
+                #match_one_info.col_sm
                   .block
                   .block
-                #team_score 0
-                #team_name Team 2
-                #team_logo
+                #team_score.col_sm 0
+                #team_name.col Team 1
+              #team_2.team_info(style='height: 100%; width:360px').row
+                #match_two_info.col_sm
+                  .block
+                  .block
+                #team_score.col_sm 0
+                #team_name.col Team 2
+                #team_logo.col_sm
                   img#team_2_logo
-              #per_round_info.col
+              #per_round_info
                 #round_counter Round 0 / 30
                 #time_counter 1:55
         #bomb_container
