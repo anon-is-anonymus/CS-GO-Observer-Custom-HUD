@@ -21,7 +21,8 @@
 		background-color: #212121;
 }
 #defuse_background{
-	position:absolute;
+	margin-top: -5px;
+	position:fixed;
 	z-index: 1;
 	float: left;
  	width:361px;
@@ -29,6 +30,7 @@
 	background-color:darkgrey;
 }
 #defuse_bar{
+	margin-top: -5px;
 	position:sticky;
 	z-index: 2;
 	float: left;
@@ -37,6 +39,7 @@
 	background-color:blue;
 }
 #defuse_img{
+	margin-top: -5px;
 	position:sticky;
 	z-index: 3;
 	float: right;
