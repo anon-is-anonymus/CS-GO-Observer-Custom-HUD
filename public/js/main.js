@@ -85,7 +85,6 @@ $(document).ready(function () {
             };
 
             if(!this.info.map || !this.info.map.team_ct) return false;
-            
             ret = $.extend({}, ret, this.info.map.team_ct);
 
             if (!ret.name) 

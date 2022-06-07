@@ -109,16 +109,24 @@ html
               #health-text 100
               #armor-text 100
             #kills
-            #stats.inlining
-              #kills_count.inlining 13
-              #assist_count.inlining 13
-              #death_count.inlining 13
-            .bomb_defuse.t
-                img.invert_brightness(src='/files/img/elements/bomb.png')
+            #stats_container
+              #stats_img
+                #kills_img
+                  img(src='/files/img/death.png', style='max-height:20px; width:auto')
+                  #kills_hud_count 13
+                #assist_img.img
+                  img(src='/files/img/death.png', style='max-height:20px; width:auto')
+                  #assist_hud_count 13
+                #death_img.img
+                  img(src='/files/img/death.png', style='max-height:20px; width:auto')
+                  #death_hud_count 13
             #nades
-              img(src='/files/img/grenades/weapon_flashbang.png', style='max-height: 35px; width:auto; filter: invert(100%); float:right; margin-right:10px;')
-              img(src='/files/img/grenades/weapon_smokegrenade.png', style='max-height: 35px; width:auto; filter: invert(100%); float:right; margin-right:10px;')
-              img(src='/files/img/grenades/weapon_hegrenade.png', style='max-height: 35px; width:auto; filter: invert(100%); float:right; margin-right:10px;')
+              img(src='/files/img/grenades/weapon_flashbang.png', style='max-height: 20px; width:auto; filter: invert(100%); float:right; margin-right:10px;')
+              img(src='/files/img/grenades/weapon_smokegrenade.png', style='max-height: 20px; width:auto; filter: invert(100%); float:right; margin-right:10px;')
+              img(src='/files/img/grenades/weapon_hegrenade.png', style='max-height: 20px; width:auto; filter: invert(100%); float:right; margin-right:10px;')
+            #ammo
+              #clip-text.clip 100
+              #reserve-text.reserve 100
           //- #first_row
           //-   #avatar_container(style="width:139px; height:139px; margin-top:-140px; float:left;")
           //- #second_row

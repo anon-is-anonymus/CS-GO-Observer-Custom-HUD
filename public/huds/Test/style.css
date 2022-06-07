@@ -432,7 +432,7 @@
 
 	#second_row {
 		position: absolute;
-		background-color:black;
+		background-color:#212121;
 		height: 55px;
 		width: 600px;
 	}
@@ -446,12 +446,14 @@
 	}
 
 	#current_nick {
-		width: 200px;
+		text-align: center;
+		width: auto;
 		font-family: 'Saira Semi Condensed', sans-serif;
 		font-weight: 600;
 		font-size: 25px;
 		margin-top: -97px;
 		margin-left: 110px;
+		padding-right: 64px;
 		overflow:hidden;
 	}
 	#current_nick.no-flag{
@@ -461,12 +463,13 @@
 	#bottom_hud > #first_row > #flag{
 		height: 64px;
 		width: 64px;
-		margin-left: 200px;
+		margin-left: 370px;
 		margin-top: -50px;
 	}
 
 	#kills{
-		text-align: center;
+		align-items: center;
+		display: flex;
 		margin-left: 200px;
 		height: 55px;
 		width: 55px;
@@ -519,20 +522,45 @@
 	}
 
 	#ammo {
+		margin-right: -100px;
+		margin-top: -55px;
 		font-family: 'Saira Semi Condensed', sans-serif;
 		height: 100%;
-		width: 200px;
+		width: 125px;
 		float: right;
 	}
 
 	.inlining {
 		display: inline;
 	}
+	#kills_count{
+		width: 33.3%;
+	}
+	#assist_count{
+		width: 33.3%;
+	}
+	#death_count{
+		width: 33.3%;
+	}
+	#stats_container {
+		margin-top: -55px;
+		margin-left: 255px;
+		display: flex;
+		height: 55px;
+		width: 80px;
+	}
+	
+	#kills_img > img{
+		width: 20px;
+		height: 20px;
+		background-image: url('/files/img/death.png');
+	}
 
-	#stats {
-		margin-top: -44px;
-		float: right;
+	#stats_img{
+		display: flex;
+		position: sticky;
 		width: 200px;
+		align-items: center;
 	}
 
 	#clip-text {
@@ -550,6 +578,8 @@
 		width: auto;
 	}
 	#nades {
+		margin-top: -45px;
+		position: sticky;
 		padding-top: 5px;
 		height: 80%;
 		width: 20%;
@@ -661,6 +691,10 @@
 	.death {
 		height: 70% !important;
         margin-top: 5px
+	}
+	.deathHud {
+		height: 70% !important;
+        margin-top: 10px
 	}
 	#left>.player>.bar1>.hp_bar>.hp_el,
 	#left>.player>.bottom_bar>.equip_bar>.hp_el {
@@ -1102,9 +1136,8 @@
 
 	#first_row{
 		position: sticky;
-		background-color: black;
-		width: 600px;
-		height: 40px;
+		background-color: #212121;
+		width: 450px;
 	}
 
 	#avatar_container{

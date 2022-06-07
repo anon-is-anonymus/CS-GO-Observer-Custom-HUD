@@ -22,7 +22,9 @@ function fillObserved(player) {
     } else {
         $("#flag").css("background-image", "").addClass("no-flag");
     }
-
+    $("#kills_hud_count").html(statistics.kills);
+    $("#assist_hud_count").html(statistics.assists);
+    $("#death_hud_count").html(statistics.deaths);
     $("#kills_count").html(statistics.kills + " K /");
     $("#assist_count").html(statistics.assists + " A /");
     $("#death_count").html(statistics.deaths + " D");
@@ -97,7 +99,6 @@ function fillPlayer(player,nr, side, max){
     let team = player.team.toLowerCase();
 
     let health_color = statistics.health <= 20 ? "#ff0000" : team == "ct" ? "#00a0ff":"#ffa000";
-    let $bottom_hud = $("#bottom_hud").find("#second_row")
     let $player = $("#"+side).find("#player"+(nr+1));
 
     let $bottom = $player.find(".bottom_bar");
@@ -134,7 +135,6 @@ function fillPlayer(player,nr, side, max){
             "float": side
         };
         $bottom.find("#weapon_icon").prepend($("<img />").attr("src", "/files/img/death.png").addClass("death").css("float", side)).prepend($("<div></div>").text(statistics.round_kills).css(img_css));
-        $bottom_hud.find("#kills").prepend($("<img />").attr("src", "/files/img/death.png").addClass("death").css("float", side)).prepend($("<div></div>").text(statistics.round_kills).css(img_css));
     }
 
     for(let key in weapons){
@@ -146,6 +146,7 @@ function fillPlayer(player,nr, side, max){
 
         if(type != "C4" && type != "Knife"){
             view += weapon.state == "active" ? "checked" : "";
+            
             if(type == "Grenade"){
                 for(let x = 0; x < weapon.ammo_reserve; x++){
                     $bottom.find("#weapon_icon").append($("<img />").attr("src", "/files/img/grenades/weapon_" + name + ".png").addClass("invert").addClass(view));
@@ -294,40 +295,40 @@ function updatePage(data) {
 
         var loss_bonusCT
         var loss_bonusT
-
+        console.log(map)
         if(map.round == 0){
             loss_bonusCT = 1900;
             loss_bonusT = 1900;
         }
         else{
-            if(team_ct.consecutive_round_losses = 1){
+            if(team_ct.consecutive_round_losses == 0){
                 loss_bonusCT = 1400;
             }
-            if(team_ct.consecutive_round_losses = 2){
+            if(team_ct.consecutive_round_losses == 1){
                 loss_bonusCT = 1900;
             }
-            if(team_ct.consecutive_round_losses = 3){
+            if(team_ct.consecutive_round_losses == 2){
                 loss_bonusCT = 2400;
             }
-            if(team_ct.consecutive_round_losses = 4){
+            if(team_ct.consecutive_round_losses == 3){
                 loss_bonusCT = 2900;
             }
-            if(team_ct.consecutive_round_losses >= 5){
+            if(team_ct.consecutive_round_losses >= 4){
                 loss_bonusCT = 3400;
             }
-            if(team_t.consecutive_round_losses = 1){
+            if(team_t.consecutive_round_losses == 0){
                 loss_bonusT = 1400;
             }
-            if(team_t.consecutive_round_losses = 2){
+            if(team_t.consecutive_round_losses == 1){
                 loss_bonusT = 1900;
             }
-            if(team_t.consecutive_round_losses = 3){
+            if(team_t.consecutive_round_losses == 2){
                 loss_bonusT = 2400;
             }
-            if(team_t.consecutive_round_losses = 4){
+            if(team_t.consecutive_round_losses == 3){
                 loss_bonusT = 2900;
             }
-            if(team_t.consecutive_round_losses >= 5){
+            if(team_t.consecutive_round_losses >= 4){
                 loss_bonusT = 3400;
             }
         }
@@ -430,6 +431,15 @@ function updatePage(data) {
     if (observed && observed.steamid != 1 && observed.getStats()) {
         fillObserved(observed);
     }
+    // if(observed.getStats().round_kills > 0){
+    //     let $bottom_hud = $("#bottom_hud").find("#second_row")
+        
+    //     let hud_img_css = {
+    //         "position": "absolute",
+    //         "text-shadow":"0 0 10px black"
+    //     };
+    //     $bottom_hud.find("#kills").prepend($("<img />").attr("src", "/files/img/death.png").addClass("death")).prepend($("<div></div>").text(observed.getStats().round_kills).css(hud_img_css));
+    // }
 
 
     //EVERY OTHER PLAYER
