@@ -453,7 +453,7 @@
 		font-size: 25px;
 		margin-top: -97px;
 		margin-left: 110px;
-		padding-right: 64px;
+		padding-right: 10px;
 		overflow:hidden;
 	}
 	#current_nick.no-flag{
@@ -522,7 +522,6 @@
 	}
 
 	#ammo {
-		margin-right: -100px;
 		margin-top: -55px;
 		font-family: 'Saira Semi Condensed', sans-serif;
 		height: 100%;
