@@ -98,6 +98,105 @@
  	height:10px;
 	background-color:red;
 }
+
+#economy{
+	display: flex;
+    background-color: #212121;
+    margin-top: 85px;
+    margin-left: 837.5px;
+    position: absolute;
+    height: 20px;
+    width: 240px;
+    align-content: center;
+    justify-content: center;
+    align-items: center;
+}
+#left_value{
+	display: flex;
+    width: 80px;
+    height: 20px;
+    flex-direction: row;
+    flex-wrap: wrap;
+    align-content: center;
+    justify-content: space-evenly;
+    align-items: center;
+}
+#eq_text{
+	display: flex;
+    font-size: 12px;
+    width: 80px;
+    align-content: center;
+    justify-content: center;
+    align-items: center;
+}
+#right_value{
+	float: right;
+	display: flex;
+    width: 80px;
+    height: 20px;
+    flex-direction: row;
+    flex-wrap: wrap;
+    align-content: center;
+    justify-content: space-evenly;
+    align-items: center;
+}
+.first_title_tm {
+	width: auto;
+	font-size: 12px;
+	height: 20px;
+	display: table-cell;
+	vertical-align: bottom;
+}
+
+.first_tm {
+	float: right;
+	width: auto;
+	height: 20px;
+	font-size: 12px;
+}
+
+#loss_bonus{
+	display: flex;
+    background-color: #212121;
+    margin-top: 100px;
+    margin-left: 837.5px;
+    position: absolute;
+    height: 20px;
+    width: 240px;
+    align-content: center;
+    justify-content: center;
+    align-items: center;
+}
+#right_loss_value{
+	float: right;
+	display: flex;
+    width: 80px;
+    height: 20px;
+    flex-direction: row;
+    flex-wrap: wrap;
+    align-content: center;
+    justify-content: space-evenly;
+    align-items: center;
+}
+#left_loss_value{
+	display: flex;
+    width: 80px;
+    height: 20px;
+    flex-direction: row;
+    flex-wrap: wrap;
+    align-content: center;
+    justify-content: space-evenly;
+    align-items: center;
+}
+#ls_text{
+	display: flex;
+    font-size: 12px;
+    width: 80px;
+    align-content: center;
+    justify-content: center;
+    align-items: center;
+}
+
 	::-webkit-scrollbar {
 		display: none;
 	}
@@ -120,18 +219,8 @@
 		font-size: 7em;
 		transition: .25s ease-in-out;
 	}
-	.first_title_tm {
-		height: 35px;
-		display: table-cell;
-		vertical-align: bottom;
-	}
 	.invert {
 		filter: invert(100%);
-	}
-	.first_tm {
-		height: 60%;
-		font-size: 30px;
-		margin-top: -10px;
 	}
 
 #player-container {
@@ -822,7 +911,7 @@
 	}
 	#team_name{
 		color: white;
-		width: 255px;
+		width: 275px;
 		display: flex;
 		text-align: center;
 		justify-content: center;

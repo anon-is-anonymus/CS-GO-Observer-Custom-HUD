@@ -287,7 +287,51 @@ function updatePage(data) {
                 $("#who_won").fadeTo(1000, 1).delay(2000).fadeTo(1000, 0);
             }
         }
+        
+        var loss_bonusCT
+        var loss_bonusT
 
+        if(map.round == 0){
+            loss_bonusCT = 1900;
+            loss_bonusT = 1900;
+        }
+        else{
+            if(team_ct.consecutive_round_losses = 1){
+                loss_bonusCT = 1400;
+            }
+            if(team_ct.consecutive_round_losses = 2){
+                loss_bonusCT = 1900;
+            }
+            if(team_ct.consecutive_round_losses = 3){
+                loss_bonusCT = 2400;
+            }
+            if(team_ct.consecutive_round_losses = 4){
+                loss_bonusCT = 2900;
+            }
+            if(team_ct.consecutive_round_losses >= 5){
+                loss_bonusCT = 3400;
+            }
+            if(team_t.consecutive_round_losses = 1){
+                loss_bonusT = 1400;
+            }
+            if(team_t.consecutive_round_losses = 2){
+                loss_bonusT = 1900;
+            }
+            if(team_t.consecutive_round_losses = 3){
+                loss_bonusT = 2400;
+            }
+            if(team_t.consecutive_round_losses = 4){
+                loss_bonusT = 2900;
+            }
+            if(team_t.consecutive_round_losses >= 5){
+                loss_bonusT = 3400;
+            }
+        }
+        console.log(loss_bonusCT)
+        console.log(loss_bonusT)
+        console.log(team_ct.consecutive_round_losses)
+        console.log(team_t.consecutive_round_losses)
+        
         teams.left.score = left.score;
         teams.right.score = right.score;
 
@@ -329,12 +373,25 @@ function updatePage(data) {
             .find("#eq_money_1")
             .text("$" + left.equip_value);
 
+        $("#left_value")
+            .find("#eq_money_1")
+            .text("$" + left.equip_value);
+        $("#left_loss_value")
+            .find("#ls_money_1")
+            .text("$" + loss_bonusCT);
+
         $("#right")
             .find("#team_money_2").removeClass('low').addClass(right.team_money < 1000 ? "low":"")
             .text("$" + right.team_money);
         $("#right")
             .find("#eq_money_2")
             .text("$" + right.equip_value);
+        $("#right_value")
+            .find("#eq_money_2")
+            .text("$" + right.equip_value);
+        $("#right_loss_value")
+            .find("#ls_money_2")
+            .text("$" + loss_bonusT);
     }
 
     $("#round_counter").html("Round " + round_now + " / 30");
