@@ -508,7 +508,7 @@
 		left: 975px;
 		margin-left: -550px;
 		height: 331px;
-		width: 1298px;
+		width: 1070px;
 		/*opacity: 0;*/
 		/*transform: skewX(40deg);*/
 	}
@@ -662,7 +662,7 @@
 		background: rgba(0, 0, 0, 0.65);
 		float: right;
 		height: 100%;
-		width: 115px;
+		width: 130px;
 	}
 	#left > .player > .bar1 >.stat_t, #left > .player > .bottom_bar >.stat_t{
 		background: linear-gradient(to right, rgba(0, 0, 0, 0.65), rgba(0, 0, 0, 0.3));
@@ -671,7 +671,7 @@
 		background: linear-gradient(to left, rgba(0, 0, 0, 0.65), rgba(0, 0, 0, 0.3));
 	}
 	#left > .player{
-		background: linear-gradient(to right, rgba(0, 0, 0, 0.65) 310px, rgba(0, 0, 0, 0.0) 310px);
+		background: linear-gradient(to right, rgba(0, 0, 0, 0.65) 295px, rgba(0, 0, 0, 0.0) 295px);
 	}
 	#right > .player{
 		background: linear-gradient(to left, rgba(0, 0, 0, 0.65) 295px, rgba(0, 0, 0, 0.0) 295px);
