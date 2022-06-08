@@ -16,9 +16,6 @@ function fillObserved(player) {
     let flag = player.country_code || (right
         ? (teams.left.flag || "")
         : (teams.right.flag || ""));
-    // let logo = player.team || (right
-    //     ? (teams.left.flag || "")
-    //     : (teams.right.flag || ""));
     if(flag){
         $("#flag").css("background-image", "url(/files/img/flags/" + flag + ".png)").removeClass("no-flag");
     } else {
@@ -34,6 +31,17 @@ function fillObserved(player) {
     $("#player-container")
         .removeClass("t ct")
         .addClass(player.team.toLowerCase());
+    
+    if(player.team == "CT"){
+        $("#team_logo_bottom").attr("src", "/teams/"+teams.left.logo);
+        $("#team_logo_bottom").removeClass("empty");
+        $("#avatar_container img").css("border: #00a0ff; border-style: solid;")
+    }
+    if(player.team == "T"){
+        $("#team_logo_bottom").attr("src", "/teams/"+teams.right.logo);
+        $("#team_logo_bottom").removeClass("empty");
+        $("#avatar_container img").css("border: #00a0ff; border-style: solid;")
+    }
 
     $("#current_nick").html(player.name);
     $("#nick_also").html(player.real_name + " ");
