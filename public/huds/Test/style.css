@@ -450,7 +450,7 @@
 		background-color: #c19511 !important;
 	}
 
-	#team_logo_bottom_hud{
+	#team_logo_bottom{
 		height: 55px;
 		width: 55px;
 		margin-left: 0px;
@@ -993,7 +993,11 @@
 	#avatar_container img {
 		width:100px;
 		height:100px;
-		margin-top: -50px;
+		margin-top: -45px;
+	}
+	#flag img {
+		width:55px;
+		height:55px;
 	}
 	#match_one_info{
 		background-image: linear-gradient(#00a0ff,#0267a3);
