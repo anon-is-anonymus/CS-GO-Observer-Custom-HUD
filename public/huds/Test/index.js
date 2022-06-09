@@ -100,7 +100,7 @@ function fillPlayers(teams){
         }
     }
 }
-function fillPlayer(player,nr, side, max){
+function fillPlayer(player, nr, side, max){
     let slot = player.observer_slot;
     let statistics = player.getStats();
     let weapons = player.getWeapons();
@@ -121,9 +121,11 @@ function fillPlayer(player,nr, side, max){
 
     $top.find("#hp_p").text(statistics.health);
     $top.find("#number").text(player.observer_slot);
+
     if(player.observer_slot == 10){
         $top.find("#number").text(0)
     }
+
     $top.find(".hp_bar").css("background", gradient);
 
     $bottom.find(".kills").text(statistics.kills);
@@ -247,7 +249,6 @@ function updatePage(data) {
         $("#match_two_info").hide();
         $("#match_info").hide();
     }
-
     if (observed.steamid == 1 || !observed) {
         $("#player-container").css("opacity", "0");
     } else if (observed) {
@@ -259,6 +260,32 @@ function updatePage(data) {
     var players = data.getPlayers();
     var round = data.round();
     var map = data.map();
+    var vals=[];
+    for(var test of players){
+        vals.push(test.val); 
+    }
+    console.log(vals)
+
+    if(map.round <= 14){
+        if(team = "CT"){
+            $("#number.left")
+                .css("background-color", "rgb(0, 160, 255)");
+        }
+        if(team = "T"){
+            $("#number.right")
+                .css("background-color", "rgb(255, 160, 0)");
+        }
+    }
+    if(map.round > 15){
+        if(players.team = "CT"){
+            $("#number.left")
+                .css("background-color", "rgb(255, 160, 0)");
+        }
+        if(players.team = "T"){
+            $("#number.right")
+                .css("background-color", "rgb(0, 160, 255)");
+        }
+    }
 
     var round_now = map.round + (round.phase == "over" || round.phase == "intermission"
         ? 0
