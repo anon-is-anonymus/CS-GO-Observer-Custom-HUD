@@ -120,10 +120,6 @@ function fillPlayer(player, nr, side, max){
     $top.find("#bar_username").removeClass("dead").addClass(statistics.health == 0 ? "dead" : "");
 
     $top.find("#hp_p").text(statistics.health);
-
-    if(slot == 10){
-        $top.find("#number").text(0)
-    }
     
     $top.find(".hp_bar").css("background", gradient);
 
@@ -259,11 +255,9 @@ function updatePage(data) {
     var players = data.getPlayers();
     var round = data.round();
     var map = data.map();
-    var slot;
         
     Object.keys(players).forEach(k => {
-        console.log(players);
-        if(map.round <= 14){
+        if(map.round <= 15){
             if(players[k].team == "CT"){
                 slot = players[k].observer_slot;
                 $("#number").text(slot);
@@ -278,19 +272,31 @@ function updatePage(data) {
             }
         }
         if(map.round >= 15){
-            if(players[k].team == "CT"){
-                slot = players[k].observer_slot.prototype.reverse();
-                $("#number").text(slot);
-                $("#number.left").css("background-color", "rgb(255, 160, 0)");
+            const slot_reverse_right = []
+            for (let i = 5; i > 0; i--){
+                slot_reverse_right.push(i);
             }
-            if(players[k].team == "T"){
-                slot = players[k].observer_slot.prototype.reverse();
-                console.log(slot)
-                $("#number").text(slot);
-                $("#number.right").css("background-color", "rgb(0, 160, 255)");
+            const slot_reverse_left = []
+            for (let i = 10; i > 5; i--){
+                slot_reverse_left.push(i);
             }
+            
+            Object.keys(slot_reverse_right).forEach(k => {
+                if(players[k].team == "CT"){
+                    slot = slot_reverse_right[k]
+                    $("#number.right").text(slot);
+                    $("#number.right").css("background-color", "rgb(0, 160, 255)");
+                }
+            });
+
+            Object.keys(slot_reverse_left).forEach(k => {
+                if(players[k].team == "CT"){
+                    $("#number.left").text(slot_reverse_left[k]);
+                    $("#number.left").css("background-color", "rgb(255, 160, 0)");
+                }
+            });
         }
-      });
+    });
       
     var round_now = map.round + (round.phase == "over" || round.phase == "intermission"
         ? 0
