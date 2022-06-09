@@ -120,12 +120,11 @@ function fillPlayer(player, nr, side, max){
     $top.find("#bar_username").removeClass("dead").addClass(statistics.health == 0 ? "dead" : "");
 
     $top.find("#hp_p").text(statistics.health);
-    $top.find("#number").text(player.observer_slot);
 
-    if(player.observer_slot == 10){
+    if(slot == 10){
         $top.find("#number").text(0)
     }
-
+    
     $top.find(".hp_bar").css("background", gradient);
 
     $bottom.find(".kills").text(statistics.kills);
@@ -260,33 +259,39 @@ function updatePage(data) {
     var players = data.getPlayers();
     var round = data.round();
     var map = data.map();
-    var vals=[];
-    for(var test of players){
-        vals.push(test.val); 
-    }
-    console.log(vals)
-
-    if(map.round <= 14){
-        if(team = "CT"){
-            $("#number.left")
-                .css("background-color", "rgb(0, 160, 255)");
+    var slot;
+        
+    Object.keys(players).forEach(k => {
+        console.log(players);
+        if(map.round <= 14){
+            if(players[k].team == "CT"){
+                slot = players[k].observer_slot;
+                $("#number").text(slot);
+                $("#number.left")
+                    .css("background-color", "rgb(0, 160, 255)");
+            }
+            if(players[k].team == "T"){
+                slot = players[k].observer_slot;
+                $("#number").text(slot);
+                $("#number.right")
+                    .css("background-color", "rgb(255, 160, 0)");
+            }
         }
-        if(team = "T"){
-            $("#number.right")
-                .css("background-color", "rgb(255, 160, 0)");
+        if(map.round >= 15){
+            if(players[k].team == "CT"){
+                slot = players[k].observer_slot.prototype.reverse();
+                $("#number").text(slot);
+                $("#number.left").css("background-color", "rgb(255, 160, 0)");
+            }
+            if(players[k].team == "T"){
+                slot = players[k].observer_slot.prototype.reverse();
+                console.log(slot)
+                $("#number").text(slot);
+                $("#number.right").css("background-color", "rgb(0, 160, 255)");
+            }
         }
-    }
-    if(map.round > 15){
-        if(players.team = "CT"){
-            $("#number.left")
-                .css("background-color", "rgb(255, 160, 0)");
-        }
-        if(players.team = "T"){
-            $("#number.right")
-                .css("background-color", "rgb(0, 160, 255)");
-        }
-    }
-
+      });
+      
     var round_now = map.round + (round.phase == "over" || round.phase == "intermission"
         ? 0
         : 1);
