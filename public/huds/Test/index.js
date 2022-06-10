@@ -136,6 +136,17 @@ function fillPlayer(player, nr, side, max){
     $top.find("#weapon_icon").html("");
     $bottom.find("#weapon_icon").html("");
 
+    //stolen from dionpirotta
+    if (slot >= 1 && slot <= 5) {
+        $top.find("#number").text(slot);
+      } else {
+        if (slot == 10) {
+          $top.find("#number").text("0");
+        } else {
+          $top.find("#number").text(slot);
+        }
+      }
+
     if(statistics.round_kills > 0){
         let img_css = {
             "text-shadow":"0 0 10px black",
@@ -255,48 +266,6 @@ function updatePage(data) {
     var players = data.getPlayers();
     var round = data.round();
     var map = data.map();
-        
-    Object.keys(players).forEach(k => {
-        if(map.round <= 15){
-            if(players[k].team == "CT"){
-                slot = players[k].observer_slot;
-                $("#number").text(slot);
-                $("#number.left")
-                    .css("background-color", "rgb(0, 160, 255)");
-            }
-            if(players[k].team == "T"){
-                slot = players[k].observer_slot;
-                $("#number").text(slot);
-                $("#number.right")
-                    .css("background-color", "rgb(255, 160, 0)");
-            }
-        }
-        if(map.round >= 15){
-            const slot_reverse_right = []
-            for (let i = 5; i > 0; i--){
-                slot_reverse_right.push(i);
-            }
-            const slot_reverse_left = []
-            for (let i = 10; i > 5; i--){
-                slot_reverse_left.push(i);
-            }
-            
-            Object.keys(slot_reverse_right).forEach(k => {
-                if(players[k].team == "CT"){
-                    slot = slot_reverse_right[k]
-                    $("#number.right").text(slot);
-                    $("#number.right").css("background-color", "rgb(0, 160, 255)");
-                }
-            });
-
-            Object.keys(slot_reverse_left).forEach(k => {
-                if(players[k].team == "CT"){
-                    $("#number.left").text(slot_reverse_left[k]);
-                    $("#number.left").css("background-color", "rgb(255, 160, 0)");
-                }
-            });
-        }
-    });
       
     var round_now = map.round + (round.phase == "over" || round.phase == "intermission"
         ? 0
