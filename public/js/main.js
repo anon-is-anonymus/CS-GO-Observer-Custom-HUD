@@ -161,9 +161,10 @@ $(document).ready(function () {
                 let player = this.info.allplayers[steamid];
                 if(player.observer_slot == 0) player.observer_slot = 10;
                 player.steamid = steamid;
-                res.push(player);
+                res.push(player.observer_slot);
             }
-            res.sort(function(a,b){return a.observer_slot - b.observer_slot})
+            res.sort(function(a,b){return a - b})
+            console.table(res)
             return res;
         },
         phase: function () {

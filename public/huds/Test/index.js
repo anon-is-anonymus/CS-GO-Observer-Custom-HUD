@@ -263,7 +263,6 @@ function updatePage(data) {
     if ((round.phase == "freezetime" && !freezetime) || round_now != last_round) {
         start_money = {};
     }
-
     var longd = 10;
     var team_ct = data.getCT();
     var team_t = data.getT();
@@ -298,24 +297,6 @@ function updatePage(data) {
                 $("#winning_team").text(teams.right.name).removeClass("t-color ct-color").addClass(teams.right.side.toLowerCase() + "-color");
                 $("#who_won").fadeTo(1000, 1).delay(2000).fadeTo(1000, 0);
             }
-        }
-
-        const slot = [];
-        console.log(data.getPlayerSlot())
-        for (i = 1; i < 11; i++){
-            slot.push(data.getPlayer(i).observer_slot);
-        }
-        //stolen from dionpirotta
-        if (slot.push() >= 1 && slot.push() <= 5) {
-            $("#number").text(slot.push());
-        }
-        else {
-            if (slot.push() == 10) {
-            $("#number").text("0");
-        }
-        else {
-            $("#number").text(slot.push());
-        }
         }
 
         var loss_bonusCT
@@ -388,6 +369,9 @@ function updatePage(data) {
 
         $("#team_1")
             .find("#team_name").removeClass("ct-name-color t-name-color").addClass(test_player2.team.toLowerCase() + "-name-color");
+
+        $("#team.left")
+            .find("#player.number").removeClass("ct-name-color t-name-color").addClass(test_player2.team.toLowerCase() + "-name-color");
 
         $("#team_2")
             .removeClass("ct-color t-color")
