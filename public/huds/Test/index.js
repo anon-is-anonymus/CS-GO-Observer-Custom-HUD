@@ -150,6 +150,7 @@ function fillPlayer(player, nr, side, max){
     if(statistics.round_kills > 0){
         let img_css = {
             "text-shadow":"0 0 10px black",
+            "margin-top":"-3.5px",
             "float": side
         };
         $bottom.find("#weapon_icon").prepend($("<img />").attr("src", "/files/img/kill.png").addClass("kill").css("float", side)).prepend($("<div></div>").text(statistics.round_kills).css(img_css));
