@@ -1,9 +1,9 @@
 Currently trying to make it look and feel like ESL's HUD cos I think that's the best one.
 
-Work done so far: Top Hud done!
+Work done so far: Top Hud done! Side player bar numbers also done!
 ![image](https://user-images.githubusercontent.com/68243858/172266276-6707d6b5-d4f8-43fb-84d0-49856d7d2aa7.png)
 
-Work left to do: Polish observed player bar, side player bar numbers and general aesthetic
+Work left to do: Polish observed player bar and side bars, and general aesthetic
 
 # DEPRECATED - USE [LEXOGRINE HUD MANAGER](https://github.com/lexogrine/hud-manager)
 
