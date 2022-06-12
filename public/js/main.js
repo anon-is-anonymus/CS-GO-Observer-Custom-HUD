@@ -152,6 +152,20 @@ $(document).ready(function () {
             if(!(slot >= 0 && slot <= 10)) return false;
             return slotted[slot];
         },
+        getPlayerSlot: function () {
+            if (!this.info.allplayers) return false;
+
+            let res = [];
+
+            for(var steamid in this.info.allplayers){
+                let player = this.info.allplayers[steamid];
+                if(player.observer_slot == 0) player.observer_slot = 10;
+                player.steamid = steamid;
+                res.push(player);
+            }
+            res.sort(function(a,b){return a.observer_slot - b.observer_slot})
+            return res;
+        },
         phase: function () {
             if (!this.info.phase_countdowns) return false;
             return this.info.phase_countdowns;

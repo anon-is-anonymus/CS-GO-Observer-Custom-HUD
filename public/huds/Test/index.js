@@ -136,17 +136,6 @@ function fillPlayer(player, nr, side, max){
     $top.find("#weapon_icon").html("");
     $bottom.find("#weapon_icon").html("");
 
-    //stolen from dionpirotta
-    if (slot >= 1 && slot <= 5) {
-        $top.find("#number").text(slot);
-      } else {
-        if (slot == 10) {
-          $top.find("#number").text("0");
-        } else {
-          $top.find("#number").text(slot);
-        }
-      }
-
     if(statistics.round_kills > 0){
         let img_css = {
             "text-shadow":"0 0 10px black",
@@ -309,6 +298,24 @@ function updatePage(data) {
                 $("#winning_team").text(teams.right.name).removeClass("t-color ct-color").addClass(teams.right.side.toLowerCase() + "-color");
                 $("#who_won").fadeTo(1000, 1).delay(2000).fadeTo(1000, 0);
             }
+        }
+
+        const slot = [];
+        console.log(data.getPlayerSlot())
+        for (i = 1; i < 11; i++){
+            slot.push(data.getPlayer(i).observer_slot);
+        }
+        //stolen from dionpirotta
+        if (slot.push() >= 1 && slot.push() <= 5) {
+            $("#number").text(slot.push());
+        }
+        else {
+            if (slot.push() == 10) {
+            $("#number").text("0");
+        }
+        else {
+            $("#number").text(slot.push());
+        }
         }
 
         var loss_bonusCT
@@ -506,7 +513,7 @@ function updatePage(data) {
                     isDefusing = true;
                 }
                 console.log(parseFloat(phase.phase_ends_in));
-                $("#defuse_bar").css("width", 35 * parseFloat(phase.phase_ends_in) + "px");
+                $("#defuse_bar").css("width", 350 * parseFloat(phase.phase_ends_in) / longd + "px");
             }
         } else {
             resetBomb();
