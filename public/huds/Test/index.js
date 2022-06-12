@@ -152,7 +152,7 @@ function fillPlayer(player, nr, side, max){
             "text-shadow":"0 0 10px black",
             "float": side
         };
-        $bottom.find("#weapon_icon").prepend($("<img />").attr("src", "/files/img/death.png").addClass("death").css("float", side)).prepend($("<div></div>").text(statistics.round_kills).css(img_css));
+        $bottom.find("#weapon_icon").prepend($("<img />").attr("src", "/files/img/kill.png").addClass("kill").css("float", side)).prepend($("<div></div>").text(statistics.round_kills).css(img_css));
     }
 
     for(let key in weapons){
@@ -377,11 +377,21 @@ function updatePage(data) {
         $("#team_1")
             .removeClass("ct-color t-color")
             .addClass(test_player2.team.toLowerCase() + "-color");
+
+        $("#team_1")
+            .find("#team_name").removeClass("ct-name-color t-name-color").addClass(test_player2.team.toLowerCase() + "-name-color");
+
         $("#team_2")
             .removeClass("ct-color t-color")
             .addClass(test_player2.team.toLowerCase() != "t"
                 ? "t-color"
                 : "ct-color");
+        
+        $("#team_2")
+            .find("#team_name").removeClass("ct-name-color t-name-color")
+            .addClass(test_player2.team.toLowerCase() != "t"
+                ? "t-name-color"
+                : "ct-name-color");
 
         $("#left")
             .find("#team_money_1").removeClass('low').addClass(left.team_money < 1000 ? "low":"")
@@ -494,9 +504,8 @@ function updatePage(data) {
                     }
                     isDefusing = true;
                 }
-                var seconds = Math.round(parseFloat(phase.phase_ends_in).toFixed(1));
-                $("#defuse_bar").css("width", 350 * (parseFloat(phase.phase_ends_in) / longd) + "px");
-                $("#defuse_time").text("00:" + (seconds < 10 ? "0" + seconds : seconds));
+                console.log(parseFloat(phase.phase_ends_in));
+                $("#defuse_bar").css("width", 35 * parseFloat(phase.phase_ends_in) + "px");
             }
         } else {
             resetBomb();
