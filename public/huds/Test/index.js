@@ -113,6 +113,7 @@ function fillPlayer(player, nr, side, max){
 
     let $bottom = $player.find(".bottom_bar");
     let $top = $player.find(".bar1");
+    let $number = $player.find("#number");
 
     let gradient = "linear-gradient(to " + side +", rgba(0,0,0,0) " + (100-statistics.health) + "%, " + health_color + " " + (100-statistics.health) + "%)";
 
@@ -135,6 +136,8 @@ function fillPlayer(player, nr, side, max){
     
     $top.find("#weapon_icon").html("");
     $bottom.find("#weapon_icon").html("");
+
+    $number.removeClass("ct-hud-color t-hud-color").addClass(player.team.toLowerCase() + "-hud-color");
 
     if(statistics.round_kills > 0){
         let img_css = {
@@ -369,9 +372,6 @@ function updatePage(data) {
 
         $("#team_1")
             .find("#team_name").removeClass("ct-name-color t-name-color").addClass(test_player2.team.toLowerCase() + "-name-color");
-
-        $("#team.left")
-            .find("#player.number").removeClass("ct-name-color t-name-color").addClass(test_player2.team.toLowerCase() + "-name-color");
 
         $("#team_2")
             .removeClass("ct-color t-color")

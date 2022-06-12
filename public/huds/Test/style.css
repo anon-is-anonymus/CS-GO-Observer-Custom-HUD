@@ -986,6 +986,14 @@
 		background-image: linear-gradient(#ffa000, #ab6d02);
 	}
 
+	.ct-hud-color{
+		background-color: #00a0ff;
+	}
+
+	.t-hud-color{
+		background-color: #ffa000;
+	}
+
 	#team_2 {
 		text-align: left;
 		float: right;
