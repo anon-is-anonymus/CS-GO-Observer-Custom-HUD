@@ -17,7 +17,7 @@ function fillObserved(player) {
         ? (teams.left.flag || "")
         : (teams.right.flag || ""));
     if(flag){
-        $("#flag").css("background-image", "url(/files/img/flags/" + flag + ".png)").removeClass("no-flag");
+        $("#flag").css("background-image", "url(/files/img/flags/" + flag + ".png)").css("background-size","55px").css("margin-top", "-55px").removeClass("no-flag");
     } else {
         $("#flag").css("background-image", "").addClass("no-flag");
     }
@@ -77,6 +77,14 @@ function fillObserved(player) {
     loadAvatar(player.steamid, function(){
         $("#avatar_container").html($("<img />").attr("src", "/av/"+player.steamid));
     });
+    //add kill icons
+
+    // if(statistics.round_kills > 0){
+    //     let img_css = {
+    //         "text-shadow":"0 0 10px black"
+    //     };
+    //     $("#kills").prepend($("<img />").attr("src", "/files/img/kill.png").css("width", "20px").css("margin-left", "4px").addClass("kill")).prepend($("<div></div>").text(statistics.round_kills).css(img_css));
+    // }
 }
 function fillPlayers(teams){
     if(teams.left.players){
@@ -359,12 +367,18 @@ function updatePage(data) {
 
         $("#match_one_info")
             .removeClass("ct t")
-            .addClass(test_player2.team.toLowerCase());
+            .addClass(test_player2.team.toLowerCase())
+            .removeClass("ct-name-color t-name-color")
+            .addClass(test_player2.team.toLowerCase() + "-name-color");
         $("#match_two_info")
             .removeClass("ct t")
             .addClass(test_player2.team.toLowerCase() != "ct"
                 ? "ct"
-                : "t");
+                : "t")
+            .removeClass("ct-name-color t-name-color")
+            .addClass(test_player2.team.toLowerCase() != "ct"
+                ? "ct-name-color"
+                : "t-name-color");
 
         $("#team_1")
             .removeClass("ct-color t-color")
@@ -449,17 +463,7 @@ function updatePage(data) {
     if (observed && observed.steamid != 1 && observed.getStats()) {
         fillObserved(observed);
     }
-    // if(observed.getStats().round_kills > 0){
-    //     let $bottom_hud = $("#bottom_hud").find("#second_row")
-        
-    //     let hud_img_css = {
-    //         "position": "absolute",
-    //         "text-shadow":"0 0 10px black"
-    //     };
-    //     $bottom_hud.find("#kills").prepend($("<img />").attr("src", "/files/img/death.png").addClass("death")).prepend($("<div></div>").text(observed.getStats().round_kills).css(hud_img_css));
-    // }
-
-
+    
     //EVERY OTHER PLAYER
     if (players) {
         
