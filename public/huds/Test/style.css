@@ -554,7 +554,6 @@
 	#kills_img > img{
 		width: 20px;
 		height: 20px;
-		background-image: url('/files/img/death.png');
 	}
 
 	#stats_img{
