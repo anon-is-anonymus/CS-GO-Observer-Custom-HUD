@@ -28,6 +28,20 @@ function fillObserved(player) {
     $("#assist_count").html(statistics.assists + " A /");
     $("#death_count").html(statistics.deaths + " D");
 
+    //add kill icons
+    let kill_image = {
+        "background-image": "url('/files/img/kill.png')",
+        "width": "20px",
+        "margin-left": "4px"
+    }
+    if(statistics.round_kills > 0){
+        $("#kills").html(statistics.round_kills);
+        $("#kills").append($("<img />").attr("src", "/files/img/kill.png").css("width", "20px").css("margin-left", "4px").addClass("kill"));
+    }
+    else{
+        $("#kills").html("");
+    }
+
     $("#player-container")
         .removeClass("t ct")
         .addClass(player.team.toLowerCase());
@@ -77,14 +91,6 @@ function fillObserved(player) {
     loadAvatar(player.steamid, function(){
         $("#avatar_container").html($("<img />").attr("src", "/av/"+player.steamid));
     });
-    //add kill icons
-
-    // if(statistics.round_kills > 0){
-    //     let img_css = {
-    //         "text-shadow":"0 0 10px black"
-    //     };
-    //     $("#kills").prepend($("<img />").attr("src", "/files/img/kill.png").css("width", "20px").css("margin-left", "4px").addClass("kill")).prepend($("<div></div>").text(statistics.round_kills).css(img_css));
-    // }
 }
 function fillPlayers(teams){
     if(teams.left.players){
