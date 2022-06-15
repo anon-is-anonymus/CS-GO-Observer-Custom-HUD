@@ -992,6 +992,14 @@
 	.t-hud-color{
 		background-color: #ffa000;
 	}
+	
+	.ct-dead-color{
+		background-color: #595959;
+	}
+
+	.t-dead-color{
+		background-color: #595959;
+	}
 
 	#team_2 {
 		text-align: left;

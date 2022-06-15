@@ -155,7 +155,8 @@ function fillPlayer(player, nr, side, max){
     $top.find("#weapon_icon").html("");
     $bottom.find("#weapon_icon").html("");
 
-    $number.removeClass("ct-hud-color t-hud-color").addClass(player.team.toLowerCase() + "-hud-color");
+    $number.removeClass("dead").addClass(statistics.health == 0 ? "dead" : "");
+    $number.removeClass("ct-hud-color t-hud-color ct-dead-color t-dead-color").addClass(player.team.toLowerCase() + "-hud-color").addClass(statistics.health == 0 ? player.team.toLowerCase() + "-dead-color" : "");
 
     if(statistics.round_kills > 0){
         let img_css = {
