@@ -56,6 +56,10 @@ function fillObserved(player) {
         $("#team_logo_bottom").removeClass("empty");
         $("#avatar_container img").css("border: #00a0ff; border-style: solid;")
     }
+    //hacky way to fix, find a better way next time
+    else {
+        $("#team_logo_bottom").attr("src", "/teams/null.png");
+    }
 
     $("#current_nick").html(player.name);
     $("#nick_also").html(player.real_name + " ");
@@ -416,17 +420,12 @@ function updatePage(data) {
             .find("#eq_money_1")
             .text("$" + left.equip_value);
        
-        console.log(teams.left.side)
         if(teams.left.side == "ct"){
-            console.log("Running")
-            console.log(loss_bonusCT)
             $("#left_loss_value")
                 .find("#ls_money_1")
                 .text("$" + loss_bonusCT);
         }
         else{
-            console.log("Running")
-            console.log(loss_bonusT)
             $("#left_loss_value")
                 .find("#ls_money_1")
                 .text("$" + loss_bonusT);
@@ -443,15 +442,11 @@ function updatePage(data) {
             .text("$" + right.equip_value);
 
         if(teams.right.side == "ct"){
-            console.log("Running")
-            console.log(loss_bonusCT)
             $("#right_loss_value")
                 .find("#ls_money_2")
                 .text("$" + loss_bonusCT);
         }
         else{
-            console.log("Running")
-            console.log(loss_bonusT)
             $("#right_loss_value")
                 .find("#ls_money_2")
                 .text("$" + loss_bonusT);
