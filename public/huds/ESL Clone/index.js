@@ -51,6 +51,9 @@ function fillObserved(player) {
         $("#team_logo_bottom").removeClass("empty");
         $("#avatar_container img").css("border: #00a0ff; border-style: solid;")
     }
+    else {
+        $("#team_logo_bottom").attr("src", "/teams/null.png");
+    }
     if(player.team == "T"){
         $("#team_logo_bottom").attr("src", "/teams/"+teams.right.logo);
         $("#team_logo_bottom").removeClass("empty");
