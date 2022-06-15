@@ -415,9 +415,22 @@ function updatePage(data) {
         $("#left_value")
             .find("#eq_money_1")
             .text("$" + left.equip_value);
-        $("#left_loss_value")
-            .find("#ls_money_1")
-            .text("$" + loss_bonusCT);
+       
+        console.log(teams.left.side)
+        if(teams.left.side == "ct"){
+            console.log("Running")
+            console.log(loss_bonusCT)
+            $("#left_loss_value")
+                .find("#ls_money_1")
+                .text("$" + loss_bonusCT);
+        }
+        else{
+            console.log("Running")
+            console.log(loss_bonusT)
+            $("#left_loss_value")
+                .find("#ls_money_1")
+                .text("$" + loss_bonusT);
+        }
 
         $("#right")
             .find("#team_money_2").removeClass('low').addClass(right.team_money < 1000 ? "low":"")
@@ -428,9 +441,21 @@ function updatePage(data) {
         $("#right_value")
             .find("#eq_money_2")
             .text("$" + right.equip_value);
-        $("#right_loss_value")
-            .find("#ls_money_2")
-            .text("$" + loss_bonusT);
+
+        if(teams.right.side == "ct"){
+            console.log("Running")
+            console.log(loss_bonusCT)
+            $("#right_loss_value")
+                .find("#ls_money_2")
+                .text("$" + loss_bonusCT);
+        }
+        else{
+            console.log("Running")
+            console.log(loss_bonusT)
+            $("#right_loss_value")
+                .find("#ls_money_2")
+                .text("$" + loss_bonusT);
+        }
     }
 
     $("#round_counter").html("Round " + round_now + " / 30");
