@@ -545,16 +545,12 @@
 	}
 	#stats_container {
 		margin-top: -55px;
-		margin-left: 255px;
+		margin-left: 246.5px;
 		display: flex;
 		height: 55px;
 		width: 80px;
 	}
 	
-	#kills_img > img{
-		width: 20px;
-		height: 20px;
-	}
 
 	#stats_img{
 		display: flex;
@@ -608,7 +604,7 @@
 		bottom: 0;
 	}
 	.equip_bar>.bar_weapon{
-		width:165px !important;
+		width:150px !important;
 	}
 
 	#right {
@@ -703,6 +699,7 @@
 		width: 40px;
 		height: 100%;
 		text-align: center;
+		margin-left: 15px;
 	}
 
 	#right>.player>.bar1>.hp_bar>.hp_el,
@@ -711,6 +708,7 @@
 		width: 40px;
 		height: 100%;
 		text-align: center;
+		margin-right: 15px;
 	}
 
 	#left>.player>.bar1>.hp_bar>.bar_username {
@@ -832,7 +830,7 @@
 
 	.moneys.t {
 		height: 100%;
-		width: 60px;
+		width: 30px;
 		float: right;
 	}
 
@@ -994,11 +992,11 @@
 	}
 	
 	.ct-dead-color{
-		background-color: #595959;
+		background-color: transparent;
 	}
 
 	.t-dead-color{
-		background-color: #595959;
+		background-color: transparent;
 	}
 
 	#team_2 {

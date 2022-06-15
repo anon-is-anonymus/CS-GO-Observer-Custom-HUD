@@ -29,11 +29,6 @@ function fillObserved(player) {
     $("#death_count").html(statistics.deaths + " D");
 
     //add kill icons
-    let kill_image = {
-        "background-image": "url('/files/img/kill.png')",
-        "width": "20px",
-        "margin-left": "4px"
-    }
     if(statistics.round_kills > 0){
         $("#kills").html(statistics.round_kills);
         $("#kills").append($("<img />").attr("src", "/files/img/kill.png").css("width", "20px").css("margin-left", "4px").addClass("kill"));
