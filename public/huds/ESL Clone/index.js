@@ -452,7 +452,28 @@ function updatePage(data) {
         }
     }
 
+    //esea fix
+    if((team_ct.score + team_t.score) > 14){
+        round_now = round_now + 15
+    }
+
     $("#round_counter").html("Round " + round_now + " / 30");
+    //hacky OT lol
+    if(round_now > 30){
+        $("#round_counter").html("Round " + (round_now - 30) + " / 6");
+    }
+    if(round_now > 36){
+        $("#round_counter").html("Round " + (round_now - 36) + " / 6");
+    }
+    if(round_now > 42){
+        $("#round_counter").html("Round " + (round_now - 42) + " / 6");
+    }
+    if(round_now > 48){
+        $("#round_counter").html("Round " + (round_now - 48) + " / 6");
+    }
+    if(round_now > 54){
+        $("#round_counter").html("Round " + (round_now - 54) + " / 6");
+    }
     //TEAMS
 
     $("#team_2 #team_name").html(teams.right.name);
