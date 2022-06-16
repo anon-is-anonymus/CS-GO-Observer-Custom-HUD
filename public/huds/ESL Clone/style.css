@@ -833,7 +833,7 @@
 
 	.moneys.t {
 		height: 100%;
-		width: 30px;
+		width: 45px;
 		float: right;
 	}
 
@@ -1048,9 +1048,9 @@
 		top: 0px;
 		position: fixed;
 		left: 50%;
-		margin-left: -402px;
+		margin-left: -42px;
 		background-color: #212121;
-		width:800px;
+		width:80px;
 		text-align:center;
 		font-weight:500;
 	}
@@ -1082,7 +1082,7 @@
 	}
 	#team_1 > #team_score{
 		margin: auto;
-		width: 40px;
+		width: 50px;
 		height: 55px;
 		float:right;
 		display: flex;
@@ -1092,7 +1092,7 @@
 	}
 	#team_2 > #team_score{
 		margin: auto;
-		width: 40px;
+		width: 50px;
 		height: 55px;
 		float:left;
 		display: flex;

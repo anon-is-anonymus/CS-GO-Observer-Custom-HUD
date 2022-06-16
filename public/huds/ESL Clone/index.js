@@ -546,7 +546,6 @@ function updatePage(data) {
                     }
                     isDefusing = true;
                 }
-                console.log(parseFloat(phase.phase_ends_in));
                 $("#defuse_bar").css("width", 350 * parseFloat(phase.phase_ends_in) / longd + "px");
             }
         } else {
