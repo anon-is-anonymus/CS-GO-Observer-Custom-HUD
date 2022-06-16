@@ -944,15 +944,14 @@
 	}
 
 	#time_counter {
-		font-size: 25px;
-		margin-top: -7px;
+		font-size: 30px;
+		margin-top: -10px;
 		width: 55px;
 		height: 35px;
 		text-align: center;
 	}
 
 	#round_counter {
-		margin-top: 2.5px;
 		font-size: 12px;
 		width: 80px;
 		height: 20px;
