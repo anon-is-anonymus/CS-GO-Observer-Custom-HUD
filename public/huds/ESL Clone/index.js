@@ -21,6 +21,20 @@ function fillObserved(player) {
     } else {
         $("#flag").css("background-image", "").addClass("no-flag");
     }
+    if(player.team == "CT"){
+        $("#team_logo_bottom").attr("src", "/teams/"+teams.left.logo);
+        $("#team_logo_bottom").removeClass("empty");
+    }
+    else {
+        $("#team_logo_bottom").addClass("empty");
+    }
+    if(player.team == "T"){
+        $("#team_logo_bottom").attr("src", "/teams/"+teams.right.logo);
+        $("#team_logo_bottom").removeClass("empty");
+    }
+    else {
+        $("#team_logo_bottom").addClass("empty");
+    }
     $("#kills_hud_count").html(statistics.kills);
     $("#assist_hud_count").html(statistics.assists);
     $("#death_hud_count").html(statistics.deaths);
@@ -40,24 +54,6 @@ function fillObserved(player) {
     $("#player-container")
         .removeClass("t ct")
         .addClass(player.team.toLowerCase());
-    
-    if(player.team == "CT"){
-        $("#team_logo_bottom").attr("src", "/teams/"+teams.left.logo);
-        $("#team_logo_bottom").removeClass("empty");
-        $("#avatar_container img").css("border: #00a0ff; border-style: solid;")
-    }
-    else {
-        $("#team_logo_bottom").attr("src", "/teams/null.png");
-    }
-    if(player.team == "T"){
-        $("#team_logo_bottom").attr("src", "/teams/"+teams.right.logo);
-        $("#team_logo_bottom").removeClass("empty");
-        $("#avatar_container img").css("border: #00a0ff; border-style: solid;")
-    }
-    //hacky way to fix, find a better way next time
-    else {
-        $("#team_logo_bottom").attr("src", "/teams/null.png");
-    }
 
     $("#current_nick").html(player.name);
     $("#nick_also").html(player.real_name + " ");
@@ -453,7 +449,7 @@ function updatePage(data) {
     }
 
     //esea fix
-    if((team_ct.score + team_t.score) > 14){
+    if((team_ct.score + team_t.score) > 14 && round_now <14){
         round_now = round_now + 15
     }
 
