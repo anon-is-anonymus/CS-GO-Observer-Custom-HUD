@@ -280,6 +280,7 @@ function updatePage(data) {
         start_money = {};
     }
     var longd = 10;
+    var shortd = 5
     var team_ct = data.getCT();
     var team_t = data.getT();
     var test_player2 = data.getPlayer(1);
@@ -521,6 +522,11 @@ function updatePage(data) {
         fillPlayers(teams)
     }
 
+    var defuseTime;
+    var normalise = function(val, max, min){
+        return (val - min) / (max - min)
+    }
+
     //PHASESc
     if (phase) {
         $("#time_counter").css("color", (phase.phase == "live" || phase.phase == "over" || phase.phase == "warmup" || (phase.phase == "freezetime" && phase.phase_ends_in > 10))
@@ -535,17 +541,32 @@ function updatePage(data) {
                 bomb(parseFloat(phase.phase_ends_in));
             }
             if (phase.phase == "defuse") {
-                if (!isDefusing) {
-                    longd = 5;
-                    if (parseFloat(phase.phase_ends_in) > 5) {
-                        longd = 10;
+                if(!isDefusing){
+                    //check for kit
+                    if(parseFloat(phase.phase_ends_in) <= 5){
+                        //have kit
+                        haveKit = true;
+                        isDefusing = true;
                     }
-                    isDefusing = true;
+                    else if(parseFloat(phase.phase_ends_in) > 5){
+                        //don't have kit
+                        haveKit = false;
+                        isDefusing = true;
+                    }
                 }
-                $("#defuse_bar").css("width", 350 * parseFloat(phase.phase_ends_in) / longd + "px");
+                console.log(haveKit)
+                if (haveKit){
+                    defuseTime = normalise(parseFloat(phase.phase_ends_in), shortd, 0);
+                }
+                else if (!haveKit){
+                    defuseTime = normalise(parseFloat(phase.phase_ends_in), longd, 0);
+                }
+                console.log(defuseTime);
+                $("#defuse_bar").css("width", 350 * defuseTime + "px");
             }
         } else {
             resetBomb();
+            isDefusing = false;
         }
 
         if (phase.phase == "freezetime" || phase.phase.substring(0,7) == "timeout") {
