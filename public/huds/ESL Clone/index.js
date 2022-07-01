@@ -24,6 +24,8 @@ function fillObserved(player) {
     if(player.team == "CT"){
         $("#team_logo_bottom").attr("src", "/teams/"+teams.left.logo);
         $("#team_logo_bottom").removeClass("empty");
+        $("#second_row").removeClass("ct-name-color t-name-color");
+        $("#second_row").addClass("ct-name-color");
     }
     else {
         $("#team_logo_bottom").addClass("empty");
@@ -31,6 +33,8 @@ function fillObserved(player) {
     if(player.team == "T"){
         $("#team_logo_bottom").attr("src", "/teams/"+teams.right.logo);
         $("#team_logo_bottom").removeClass("empty");
+        $("#second_row").removeClass("ct-name-color t-name-color");
+        $("#second_row").addClass("t-name-color");
     }
     else {
         $("#team_logo_bottom").addClass("empty");
@@ -272,7 +276,24 @@ function updatePage(data) {
     var players = data.getPlayers();
     var round = data.round();
     var map = data.map();
-      
+    
+
+    // if(observed.observer_slot <= 5){
+    //     console.log("left")
+
+    // }
+    // else if(observed.observer_slot > 5){
+    //     var observed_slot = observed.observer_slot - 5;
+    //     for(var i = 0; i < 5; i++){
+    //         if(i >= observed_slot){
+    //             console.log("unobserved")
+    //         } else{
+    //             $("#right").find("#player"+(i+1)).css("outline-style","solid");
+    //         }
+    //     }
+    //     console.log("right")
+    // }
+
     var round_now = map.round + (round.phase == "over" || round.phase == "intermission"
         ? 0
         : 1);
