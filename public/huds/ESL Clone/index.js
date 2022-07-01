@@ -156,6 +156,35 @@ function fillPlayer(player, nr, side, max){
     $number.removeClass("dead").addClass(statistics.health == 0 ? "dead" : "");
     $number.removeClass("ct-hud-color t-hud-color ct-dead-color t-dead-color").addClass(player.team.toLowerCase() + "-hud-color").addClass(statistics.health == 0 ? player.team.toLowerCase() + "-dead-color" : "");
 
+    // for(var i = 1; i <=10 ;i++){
+    //     console.log(player[i])
+    // }
+
+    // $("#player_counter")
+    // .find("#player_counter_numbers")
+    // .text(left.players.length + " V " + right.players.length)
+
+    // if (left.players.length == 1 || right.players.length == 1){
+    //     $("#player_counter")
+    //     .find("#player_counter_text")
+    //     .text("Clutch Situation")
+    // }
+    // else{
+    //     $("#player_counter")
+    //     .find("#player_counter_text")
+    //     .text("Players Alive")
+    // }
+    // if(left.players.length > right.players.length){
+    //     $("#player_counter_text")
+    //     .removeClass("ct-name-color t-name-color")
+    //     .addClass(left.side + "-name-color");
+    // }
+    // else if(left.players.length < right.players.length){
+    //     $("#player_counter_text")
+    //     .removeClass("ct-name-color t-name-color")
+    //     .addClass(right.side + "-name-color");
+    // }
+
     if(statistics.round_kills > 0){
         let img_css = {
             "text-shadow":"0 0 10px black",
