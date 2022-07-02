@@ -1,4 +1,4 @@
-Currently trying to make it look and feel like ESL's HUD cos I think that's the best one.
+A mish mash of all the huds I like, based off of ESL's 2022 HUD
 
 Work done so far: Top Hud done! Side player bar numbers also done!
 ![image](https://user-images.githubusercontent.com/68243858/172266276-6707d6b5-d4f8-43fb-84d0-49856d7d2aa7.png)
