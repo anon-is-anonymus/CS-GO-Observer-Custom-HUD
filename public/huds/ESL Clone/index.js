@@ -499,28 +499,45 @@ function updatePage(data) {
         }
     }
 
+    var ot_length = 6;
+    var ot_count = 0;
+
     //esea fix
     if((team_ct.score + team_t.score) > 14 && round_now <14){
         round_now = round_now + 15
     }
 
-    $("#round_counter").html("Round " + round_now + "/30");
-    //hacky OT lol
-    if(round_now > 30){
+    //Tryna do a better OT Fix
+    if ((round_now - 30) > 0){
+        ot_count++;
         $("#round_counter").html("Round " + (round_now - 30) + "/6");
+        if ((round_now - 37) % ot_length == 0){
+            console.log("being executed")
+            ot_count++
+        }
+        if(ot_count += 1){
+            $("#round_counter").html("Round " + (round_now - 30) + "/6")
+        }
     }
-    if(round_now > 36){
-        $("#round_counter").html("Round " + (round_now - 36) + "/6");
+    else{
+        $("#round_counter").html("Round " + round_now + "/30");
     }
-    if(round_now > 42){
-        $("#round_counter").html("Round " + (round_now - 42) + "/6");
-    }
-    if(round_now > 48){
-        $("#round_counter").html("Round " + (round_now - 48) + "/6");
-    }
-    if(round_now > 54){
-        $("#round_counter").html("Round " + (round_now - 54) + "/6");
-    }
+    // //hacky OT lol
+    // if(round_now > 30){
+    //     $("#round_counter").html("Round " + (round_now - 30) + "/6");
+    // }
+    // if(round_now > 36){
+    //     $("#round_counter").html("Round " + (round_now - 36) + "/6");
+    // }
+    // if(round_now > 42){
+    //     $("#round_counter").html("Round " + (round_now - 42) + "/6");
+    // }
+    // if(round_now > 48){
+    //     $("#round_counter").html("Round " + (round_now - 48) + "/6");
+    // }
+    // if(round_now > 54){
+    //     $("#round_counter").html("Round " + (round_now - 54) + "/6");
+    // }
     //TEAMS
 
     $("#team_2 #team_name").html(teams.right.name);
