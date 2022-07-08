@@ -267,6 +267,8 @@ function resetBomb() {
 var menu = false;
 var freezetime = false;
 let last_round = 0;
+var ot_count = 0;
+var run_once = 0;
 
 function updatePage(data) {
     var observed = data.getObserved();
@@ -500,44 +502,35 @@ function updatePage(data) {
     }
 
     var ot_length = 6;
-    var ot_count = 0;
 
     //esea fix
     if((team_ct.score + team_t.score) > 14 && round_now <14){
         round_now = round_now + 15
     }
 
-    //Tryna do a better OT Fix
+    console.log(round.phase)
+
+    //OT Count
     if ((round_now - 30) > 0){
-        ot_count++;
         $("#round_counter").html("Round " + (round_now - 30) + "/6");
-        if ((round_now - 37) % ot_length == 0){
-            console.log("being executed")
+        if ((round_now - 37) % ot_length == 0 && run_once == 0){
+            run_once = 1
             ot_count++
+            console.log(ot_count)
         }
-        if(ot_count += 1){
-            $("#round_counter").html("Round " + (round_now - 30) + "/6")
+        if ((round_now - 37) % ot_length == 0 && round.phase == "freezetime"){
+            console.log("being executed")
+            console.log(ot_count)
+            run_once = 0
+        }
+        if(ot_count > 0){
+            $("#round_counter").html("Round " + (round_now - 30 - ((ot_count-1) * ot_length)) + "/6")
         }
     }
+    
     else{
         $("#round_counter").html("Round " + round_now + "/30");
     }
-    // //hacky OT lol
-    // if(round_now > 30){
-    //     $("#round_counter").html("Round " + (round_now - 30) + "/6");
-    // }
-    // if(round_now > 36){
-    //     $("#round_counter").html("Round " + (round_now - 36) + "/6");
-    // }
-    // if(round_now > 42){
-    //     $("#round_counter").html("Round " + (round_now - 42) + "/6");
-    // }
-    // if(round_now > 48){
-    //     $("#round_counter").html("Round " + (round_now - 48) + "/6");
-    // }
-    // if(round_now > 54){
-    //     $("#round_counter").html("Round " + (round_now - 54) + "/6");
-    // }
     //TEAMS
 
     $("#team_2 #team_name").html(teams.right.name);
