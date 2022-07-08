@@ -3,7 +3,11 @@ A mish mash of all the huds I like, based off of ESL's 2022 HUD
 Work done so far: Top Hud done! Side player bar numbers also done!
 ![image](https://user-images.githubusercontent.com/68243858/172266276-6707d6b5-d4f8-43fb-84d0-49856d7d2aa7.png)
 
-Work left to do: Polish observed player bar and side bars, and general aesthetic
+Work left to do:
+- Observed Player Bar Team Logo not switching after halftime
+- Tactical Timeout not showing on HUD
+- Defuse and Bomb Bars do not swap positions after halftime
+- Side Player Bars in general
 
 # DEPRECATED - USE [LEXOGRINE HUD MANAGER](https://github.com/lexogrine/hud-manager)
 
