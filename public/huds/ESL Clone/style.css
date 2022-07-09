@@ -104,6 +104,16 @@
 	background-color:red;
 }
 
+#player_counter{
+	text-align: center;
+	background-color: #212121;
+	margin-top: 27px;
+	float: right;
+	height: 55px;
+	width: 200px;
+	margin-right: 200px;
+}
+
 #economy{
 	/*opacity: 0;*/
 	display: flex;

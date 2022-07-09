@@ -156,35 +156,6 @@ function fillPlayer(player, nr, side, max){
     $number.removeClass("dead").addClass(statistics.health == 0 ? "dead" : "");
     $number.removeClass("ct-hud-color t-hud-color ct-dead-color t-dead-color").addClass(player.team.toLowerCase() + "-hud-color").addClass(statistics.health == 0 ? player.team.toLowerCase() + "-dead-color" : "");
 
-    // for(var i = 1; i <=10 ;i++){
-    //     console.log(player[i])
-    // }
-
-    // $("#player_counter")
-    // .find("#player_counter_numbers")
-    // .text(left.players.length + " V " + right.players.length)
-
-    // if (left.players.length == 1 || right.players.length == 1){
-    //     $("#player_counter")
-    //     .find("#player_counter_text")
-    //     .text("Clutch Situation")
-    // }
-    // else{
-    //     $("#player_counter")
-    //     .find("#player_counter_text")
-    //     .text("Players Alive")
-    // }
-    // if(left.players.length > right.players.length){
-    //     $("#player_counter_text")
-    //     .removeClass("ct-name-color t-name-color")
-    //     .addClass(left.side + "-name-color");
-    // }
-    // else if(left.players.length < right.players.length){
-    //     $("#player_counter_text")
-    //     .removeClass("ct-name-color t-name-color")
-    //     .addClass(right.side + "-name-color");
-    // }
-
     if(statistics.round_kills > 0){
         let img_css = {
             "text-shadow":"0 0 10px black",
@@ -307,23 +278,6 @@ function updatePage(data) {
     var players = data.getPlayers();
     var round = data.round();
     var map = data.map();
-    
-
-    // if(observed.observer_slot <= 5){
-    //     console.log("left")
-
-    // }
-    // else if(observed.observer_slot > 5){
-    //     var observed_slot = observed.observer_slot - 5;
-    //     for(var i = 0; i < 5; i++){
-    //         if(i >= observed_slot){
-    //             console.log("unobserved")
-    //         } else{
-    //             $("#right").find("#player"+(i+1)).css("outline-style","solid");
-    //         }
-    //     }
-    //     console.log("right")
-    // }
 
     var round_now = map.round + (round.phase == "over" || round.phase == "intermission"
         ? 0
@@ -337,7 +291,6 @@ function updatePage(data) {
     var team_t = data.getT();
     var test_player2 = data.getPlayer(1);
     var tscore = [];
-    console.log(test_player2)
 
     $("body").css("display", !map || menu
         ? "none"
@@ -583,6 +536,55 @@ function updatePage(data) {
         return (val - min) / (max - min)
     }
 
+    // for(var i = 0; i < 10 ;i++){
+    //     console.log(players[i])
+    // }
+
+    var left_dead = 0;
+    var right_dead = 0;
+
+    for(var i = 0; i < 5; i++){
+        if(left.players[i].state.health == 0){
+            left_dead++
+            console.log(left_dead)
+        }
+    }
+    for(var i = 0; i < 5; i++){
+        if(right.players[i].state.health == 0){
+            right_dead++
+            console.log(right_dead)
+        }
+    }
+
+    $("#player_counter")
+    .find("#player_counter_numbers")
+    .text((left.players.length - left_dead) + " V " + (right.players.length - right_dead))
+
+    if ((left.players.length - left_dead) == 1 || (right.players.length - right_dead) == 1){
+        $("#player_counter")
+        .find("#player_counter_text")
+        .text("Clutch Situation")
+    }
+    else{
+        $("#player_counter")
+        .find("#player_counter_text")
+        .text("Players Alive")
+    }
+    if((left.players.length - left_dead) > (right.players.length - right_dead)){
+        $("#player_counter_text")
+        .removeClass("ct-name-color t-name-color")
+        .addClass(left.side + "-name-color");
+    }
+    else if((left.players.length - left_dead) < (right.players.length - right_dead)){
+        $("#player_counter_text")
+        .removeClass("ct-name-color t-name-color")
+        .addClass(right.side + "-name-color");
+    }
+    else{
+        $("#player_counter_text")
+        .removeClass("ct-name-color t-name-color")
+    }
+
     //PHASESc
     if (phase) {
         $("#time_counter").css("color", (phase.phase == "live" || phase.phase == "over" || phase.phase == "warmup" || (phase.phase == "freezetime" && phase.phase_ends_in > 10))
@@ -610,14 +612,12 @@ function updatePage(data) {
                         isDefusing = true;
                     }
                 }
-                console.log(haveKit)
                 if (haveKit){
                     defuseTime = normalise(parseFloat(phase.phase_ends_in), shortd, 0);
                 }
                 else if (!haveKit){
                     defuseTime = normalise(parseFloat(phase.phase_ends_in), longd, 0);
                 }
-                console.log(defuseTime);
                 $("#defuse_bar").css("width", 350 * defuseTime + "px");
             }
         } else {
