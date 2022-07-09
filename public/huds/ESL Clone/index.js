@@ -556,11 +556,20 @@ function updatePage(data) {
         }
     }
 
+    var left_alive = left.players.length - left_dead;
+    var right_alive = right.players.length - right_dead;
+
     $("#player_counter")
     .find("#player_counter_numbers")
-    .text((left.players.length - left_dead) + " V " + (right.players.length - right_dead))
+    .find('#left_number')
+    .text(left_alive)
 
-    if ((left.players.length - left_dead) == 1 || (right.players.length - right_dead) == 1){
+    $("#player_counter")
+    .find("#player_counter_numbers")
+    .find('#right_number')
+    .text(right_alive)
+
+    if (left_alive == 1 || right_alive == 1){
         $("#player_counter")
         .find("#player_counter_text")
         .text("Clutch Situation")
@@ -570,20 +579,14 @@ function updatePage(data) {
         .find("#player_counter_text")
         .text("Players Alive")
     }
-    if((left.players.length - left_dead) > (right.players.length - right_dead)){
-        $("#player_counter_text")
-        .removeClass("ct-name-color t-name-color")
-        .addClass(left.side + "-name-color");
-    }
-    else if((left.players.length - left_dead) < (right.players.length - right_dead)){
-        $("#player_counter_text")
-        .removeClass("ct-name-color t-name-color")
-        .addClass(right.side + "-name-color");
-    }
-    else{
-        $("#player_counter_text")
-        .removeClass("ct-name-color t-name-color")
-    }
+    var right_color = right.side + "-name-color";
+    console.log(right_color)
+    $("#left_number")
+        .removeClass("ct-counter-color t-counter-color")
+        .addClass(left.side + "-counter-color");
+    $("#right_number")
+    .removeClass("ct-counter-color t-counter-color")
+    .addClass(right.side + "-counter-color");
 
     //PHASESc
     if (phase) {

@@ -20,6 +20,15 @@
 		padding: 10px;
 		background-color: #212121;
 }
+#left_number{
+	width: 50px;
+}
+#v{
+	width: 50px;
+}
+#right_number{
+	width: 50px;
+}
 #defuse_background{
 	margin-top: -5px;
 	position:fixed;
@@ -111,7 +120,14 @@
 	float: right;
 	height: 55px;
 	width: 200px;
-	margin-right: 200px;
+	margin-right: 50px;
+}
+#player_counter_numbers{
+	display: flex;
+	margin-top: 5px;
+	align-content: center;
+    justify-content: center;
+    align-items: center;
 }
 
 #economy{
@@ -992,6 +1008,14 @@
 
 	.t-name-color{
 		background-image: linear-gradient(#ffa000, #ab6d02);
+	}
+
+	.ct-counter-color{
+		color: #00a0ff;
+	}
+
+	.t-counter-color{
+		color: #ffa000;
 	}
 
 	.ct-hud-color{
