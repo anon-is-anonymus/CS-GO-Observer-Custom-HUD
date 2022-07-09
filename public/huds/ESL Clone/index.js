@@ -337,6 +337,8 @@ function updatePage(data) {
     var team_t = data.getT();
     var test_player2 = data.getPlayer(1);
     var tscore = [];
+    console.log(test_player2)
+
     $("body").css("display", !map || menu
         ? "none"
         : "block");
@@ -351,7 +353,7 @@ function updatePage(data) {
             .toLowerCase() != "ct"
             ? team_ct
             : team_t;
-        
+
         teams.left.side = left.side || null;
         teams.right.side = right.side || null;
 
@@ -508,19 +510,14 @@ function updatePage(data) {
         round_now = round_now + 15
     }
 
-    console.log(round.phase)
-
     //OT Count
     if ((round_now - 30) > 0){
         $("#round_counter").html("Round " + (round_now - 30) + "/6");
         if ((round_now - 37) % ot_length == 0 && run_once == 0){
             run_once = 1
             ot_count++
-            console.log(ot_count)
         }
-        if ((round_now - 37) % ot_length == 0 && round.phase == "freezetime"){
-            console.log("being executed")
-            console.log(ot_count)
+        if (round.phase == "over"){
             run_once = 0
         }
         if(ot_count > 0){
@@ -532,7 +529,6 @@ function updatePage(data) {
         $("#round_counter").html("Round " + round_now + "/30");
     }
     //TEAMS
-
     $("#team_2 #team_name").html(teams.right.name);
     $("#team_2 #team_score").html(teams.right.score);
     $("#team_1 #team_name").html(teams.left.name);
