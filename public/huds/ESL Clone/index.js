@@ -22,23 +22,42 @@ function fillObserved(player) {
         $("#flag").css("background-image", "").addClass("no-flag");
     }
     if(player.team == "CT"){
-        $("#team_logo_bottom").attr("src", "/teams/"+teams.left.logo);
-        $("#team_logo_bottom").removeClass("empty");
-        $("#second_row").removeClass("ct-name-color t-name-color");
-        $("#second_row").addClass("ct-name-color");
+        if(teams.left.side == "ct"){
+            $("#team_logo_bottom").attr("src", "/teams/"+teams.left.logo);
+            $("#team_logo_bottom").removeClass("empty");
+            $("#second_row").removeClass("ct-name-color t-name-color");
+            $("#second_row").addClass("ct-name-color");
+        }
+        else{
+            $("#team_logo_bottom").attr("src", "/teams/"+teams.right.logo);
+            $("#team_logo_bottom").removeClass("empty");
+            $("#second_row").removeClass("ct-name-color t-name-color");
+            $("#second_row").addClass("ct-name-color");
+        }
     }
     else {
         $("#team_logo_bottom").addClass("empty");
     }
     if(player.team == "T"){
-        $("#team_logo_bottom").attr("src", "/teams/"+teams.right.logo);
-        $("#team_logo_bottom").removeClass("empty");
-        $("#second_row").removeClass("ct-name-color t-name-color");
-        $("#second_row").addClass("t-name-color");
+        if(teams.left.side == "t"){
+            $("#team_logo_bottom").attr("src", "/teams/"+teams.left.logo);
+            $("#team_logo_bottom").removeClass("empty");
+            $("#second_row").removeClass("ct-name-color t-name-color");
+            $("#second_row").addClass("t-name-color");
+        }
+        else{
+            $("#team_logo_bottom").attr("src", "/teams/"+teams.right.logo);
+            $("#team_logo_bottom").removeClass("empty");
+            $("#second_row").removeClass("ct-name-color t-name-color");
+            $("#second_row").addClass("t-name-color");
+        }
     }
     else {
         $("#team_logo_bottom").addClass("empty");
     }
+    console.log(teams.left);
+    console.log(teams.right);
+    console.log(teams.right.side)
     $("#kills_hud_count").html(statistics.kills);
     $("#assist_hud_count").html(statistics.assists);
     $("#death_hud_count").html(statistics.deaths);
@@ -536,23 +555,17 @@ function updatePage(data) {
         return (val - min) / (max - min)
     }
 
-    // for(var i = 0; i < 10 ;i++){
-    //     console.log(players[i])
-    // }
-
     var left_dead = 0;
     var right_dead = 0;
 
     for(var i = 0; i < 5; i++){
         if(left.players[i].state.health == 0){
             left_dead++
-            console.log(left_dead)
         }
     }
     for(var i = 0; i < 5; i++){
         if(right.players[i].state.health == 0){
             right_dead++
-            console.log(right_dead)
         }
     }
 
@@ -579,8 +592,6 @@ function updatePage(data) {
         .find("#player_counter_text")
         .text("Players Alive")
     }
-    var right_color = right.side + "-name-color";
-    console.log(right_color)
     $("#left_number")
         .removeClass("ct-counter-color t-counter-color")
         .addClass(left.side + "-counter-color");
