@@ -83,6 +83,24 @@ function fillObserved(player) {
 
     $("#nades").html("");
 
+    $('#right_img').css("float", "left")
+    $('#left_img').css("float", "right")
+    if(teams.right.side == "ct"){
+        $("#right_background").addClass("defuse_background");
+        $("#right_bar").addClass("defuse_bar");
+        $('#right_img').addClass("defuse_img");
+        $("#left_background").addClass("bomb_background");
+        $("#left_bar").addClass("bomb_bar");
+        $('#left_img').addClass("bomb_img");
+    }
+    else{
+        $("#left_background").addClass("defuse_background");
+        $("#left_bar").addClass("defuse_bar");
+        $('#left_img').addClass("defuse_img");
+        $("#right_background").addClass("bomb_background");
+        $("#right_bar").addClass("bomb_bar");
+        $('#right_img').addClass("bomb_img");
+    }
 
     for (let key in weapons) {
         let weapon = weapons[key];
@@ -219,7 +237,6 @@ function fillPlayer(player, nr, side, max){
 }
 var isDefusing = false;
 
-
 var bomb_time,
     bomb_timer,
     bomb_timer_css,
@@ -238,8 +255,16 @@ function bomb(time) {
                     display: "block",
                     width: bomb_time * 90 / 40 + "%"
                 }
-                $("#bomb_container").css(bomb_container_css);
-                $("#bomb_timer").css(bomb_timer_css);
+                if(teams.right.side == "t"){
+                    $("#right_container").css(bomb_container_css);
+                    $("#right_bar").css(bomb_timer_css);
+                    $("#right_bar").css("float", "right")
+                }
+                else{
+                    $("#left_container").css(bomb_container_css);
+                    $("#left_bar").css(bomb_timer_css);
+                    $("#left_bar").css("float", "left")
+                }
                 bomb_time = bomb_time - 0.01;
             }, 10);
         } else {
@@ -249,8 +274,14 @@ function bomb(time) {
 }
 function resetBomb() {
     clearInterval(bomb_timer);
-    $("#bomb_container").css("display", "none");
-    $("#bomb_timer").css("display", "none");
+    if(teams.right.side == "t"){
+        $("#right_container").css("display", "none");
+        $("#right_bar").css("display", "none");
+    }
+    else{
+        $("#left_container").css("display", "none");
+        $("#left_bar").css("display", "none");
+    }
 }
 
 //SOME other weird vars
@@ -342,6 +373,7 @@ function updatePage(data) {
             }
         }
 
+        //Loss Bonus calculation
         var loss_bonusCT
         var loss_bonusT
         if(map.round == 0){
@@ -598,15 +630,21 @@ function updatePage(data) {
     $("#right_number")
     .removeClass("ct-counter-color t-counter-color")
     .addClass(right.side + "-counter-color");
-
     //PHASESc
     if (phase) {
         $("#time_counter").css("color", (phase.phase == "live" || phase.phase == "over" || phase.phase == "warmup" || (phase.phase == "freezetime" && phase.phase_ends_in > 10))
             ? "white"
             : "red");
-        $("#defuser").css("display", phase.phase == "defuse"
+        if(teams.right.side == "ct"){
+            $("#right_container").css("display", phase.phase == "defuse"
             ? "block"
             : "none");
+        }
+        else{
+            $("#left_container").css("display", phase.phase == "defuse"
+            ? "block"
+            : "none");
+        }
 
         if (phase.phase == "bomb" || phase.phase == "defuse") {
             if (phase.phase == "bomb") {
@@ -632,7 +670,12 @@ function updatePage(data) {
                 else if (!haveKit){
                     defuseTime = normalise(parseFloat(phase.phase_ends_in), longd, 0);
                 }
-                $("#defuse_bar").css("width", 350 * defuseTime + "px");
+                if(teams.right.side == "ct"){
+                    $("#right_bar").css("width", 350 * defuseTime + "px");
+                }
+                else{
+                    $("#left_bar").css("width", 350 * defuseTime + "px");
+                }
             }
         } else {
             resetBomb();
