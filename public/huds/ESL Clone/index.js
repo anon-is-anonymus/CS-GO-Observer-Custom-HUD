@@ -356,6 +356,12 @@ function updatePage(data) {
             $('#left_img').addClass("bomb_img");
         }
         else{
+            $("#left_background").removeClass();
+            $("#left_bar").removeClass();
+            $('#left_img').removeClass();
+            $("#right_background").removeClass();
+            $("#right_bar").removeClass();
+            $('#right_img').removeClass();
             $("#left_background").addClass("defuse_background");
             $("#left_bar").addClass("defuse_bar");
             $('#left_img').addClass("defuse_img");

@@ -32,7 +32,6 @@ width: 50px;
 margin-top: -5px;
 position:fixed;
 z-index: 1;
-float: left;
  width:342px;
  height:10px;
 background-color:darkgrey;
@@ -41,7 +40,6 @@ background-color:darkgrey;
 margin-top: -5px;
 position:sticky;
 z-index: 2;
-float: left;
  width:95%;
  height:10px;
 background-color:blue;
@@ -50,7 +48,6 @@ background-color:blue;
 margin-top: -5px;
 position:sticky;
 z-index: 3;
-float: right;
 height: 10px;
 width: 10px;
 background-color: black;
@@ -80,8 +77,6 @@ background-color: #212121;
 .bomb_background{
 position:fixed;
 z-index: 1;
-float: right;
-margin-left: 18px;
 margin-top: -5px;
  width:342px;
  height:10px;
@@ -91,10 +86,35 @@ background-color:darkgrey;
 	margin-top: -5px;
 	position:sticky;
 	z-index: 3;
-	float: left;
 	height: 10px;
 	width: 10px;
 	background-color: black;
+}
+
+#right_background{
+	float: right;
+	margin-left: 15px;
+}
+
+#right_bar{
+	float: right;
+}
+
+#right_img{
+	float: left;
+}
+
+#left_background{
+	margin-right: 15px;
+	float: left;
+}
+
+#left_bar{
+	float: left;
+}
+
+#left_img{
+	float: right;
 }
 
 .bomb_img{
@@ -111,7 +131,6 @@ filter: brightness(5%) invert(100%)
 	margin-top: -5px;
 	position:sticky;
 	z-index: 2;
-	float: right;
 	 width:95%;
 	 height:10px;
 	background-color:red;
