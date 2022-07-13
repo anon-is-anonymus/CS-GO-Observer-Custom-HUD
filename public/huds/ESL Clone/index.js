@@ -85,22 +85,6 @@ function fillObserved(player) {
 
     $('#right_img').css("float", "left")
     $('#left_img').css("float", "right")
-    if(teams.right.side == "ct"){
-        $("#right_background").addClass("defuse_background");
-        $("#right_bar").addClass("defuse_bar");
-        $('#right_img').addClass("defuse_img");
-        $("#left_background").addClass("bomb_background");
-        $("#left_bar").addClass("bomb_bar");
-        $('#left_img').addClass("bomb_img");
-    }
-    else{
-        $("#left_background").addClass("defuse_background");
-        $("#left_bar").addClass("defuse_bar");
-        $('#left_img').addClass("defuse_img");
-        $("#right_background").addClass("bomb_background");
-        $("#right_bar").addClass("bomb_bar");
-        $('#right_img').addClass("bomb_img");
-    }
 
     for (let key in weapons) {
         let weapon = weapons[key];
@@ -362,6 +346,23 @@ function updatePage(data) {
 
         teams.left.name = team_one.short_name || left.name;
         teams.right.name = team_two.short_name || right.name;
+
+        if(right.side == "ct"){
+            $("#right_background").addClass("defuse_background");
+            $("#right_bar").addClass("defuse_bar");
+            $('#right_img').addClass("defuse_img");
+            $("#left_background").addClass("bomb_background");
+            $("#left_bar").addClass("bomb_bar");
+            $('#left_img').addClass("bomb_img");
+        }
+        else{
+            $("#left_background").addClass("defuse_background");
+            $("#left_bar").addClass("defuse_bar");
+            $('#left_img').addClass("defuse_img");
+            $("#right_background").addClass("bomb_background");
+            $("#right_bar").addClass("bomb_bar");
+            $('#right_img').addClass("bomb_img");
+        }
 
         if(teams.left.score !== undefined && teams.right.score !== undefined){
             if(left.score > teams.left.score){
