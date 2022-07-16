@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=DM+Sans&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:ital,wght@0,400;0,500;0,700;1,400;1,500;1,700&display=swap');
 
 html,
 body {
@@ -20,13 +20,13 @@ body {
 	background-color: #212121;
 }
 #left_number{
-width: 50px;
+	width: 50px;
 }
 #v{
-width: 50px;
+	width: 50px;
 }
 #right_number{
-width: 50px;
+	width: 50px;
 }
 .defuse_background{
 margin-top: -5px;
@@ -137,6 +137,7 @@ filter: brightness(5%) invert(100%)
 }
 
 #player_counter{
+font-weight: 600;
 text-align: center;
 background-color: #212121;
 margin-top: 27px;
