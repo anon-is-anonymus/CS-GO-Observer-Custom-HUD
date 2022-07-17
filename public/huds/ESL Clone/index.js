@@ -55,9 +55,6 @@ function fillObserved(player) {
     else {
         $("#team_logo_bottom").addClass("empty");
     }
-    console.log(teams.left);
-    console.log(teams.right);
-    console.log(teams.right.side)
     $("#kills_hud_count").html(statistics.kills);
     $("#assist_hud_count").html(statistics.assists);
     $("#death_hud_count").html(statistics.deaths);
@@ -532,7 +529,8 @@ function updatePage(data) {
             run_once = 0
         }
         if(ot_count > 0){
-            $("#round_counter").html("Round " + (round_now - 30 - ((ot_count-1) * ot_length)) + "/6")
+            $("#round_counter").css("font-size", "10px")
+            $("#round_counter").html("OT: " + ot_count + " Round " + (round_now - 30 - ((ot_count-1) * ot_length)) + "/6")
         }
     }
     
