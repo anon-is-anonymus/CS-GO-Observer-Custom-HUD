@@ -137,7 +137,7 @@ filter: brightness(5%) invert(100%)
 }
 
 #player_counter{
-font-weight: 600;
+font-weight: bold;
 text-align: center;
 background-color: #212121;
 margin-top: 27px;
@@ -146,8 +146,9 @@ height: 55px;
 width: 150px;
 }
 #player_counter_numbers{
+font-size: larger;
 display: flex;
-margin-top: 5px;
+margin-top: 1px;
 align-content: center;
 justify-content: center;
 align-items: center;
@@ -207,7 +208,7 @@ vertical-align: bottom;
 float: right;
 width: auto;
 height: 20px;
-font-size: 15px;
+font-size: 13px;
 margin-top: 2.5px;
 }
 
@@ -786,12 +787,11 @@ align-items: center;
 	position: relative;
 	z-index: 2;
 	float: left;
-	width: 15px;
-	height: 15px;
+	width: 20px;
+	height: 20px;
 	text-align: center;
-	font-size: 10px;
+	font-size: 15px;
 	margin-top: -37px;
-	margin-right: -10px;
 	border-radius: 50%;
 	border: 1px;
 	border-style: solid;
@@ -802,10 +802,10 @@ align-items: center;
 	position: relative;
 	z-index: 2;
 	float: right;
-	width: 15px;
-	height: 15px;
+	width: 20px;
+	height: 20px;
 	text-align: center;
-	font-size: 10px;
+	font-size: 15px;
 	margin-top: -37px;
 	border-radius: 50%;
 	border: 1px;
