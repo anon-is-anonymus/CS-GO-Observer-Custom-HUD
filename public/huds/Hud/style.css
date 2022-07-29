@@ -178,7 +178,7 @@ align-items: center;
 }
 #eq_text{
 display: flex;
-font-size: 12px;
+font-size: 13px;
 width: 80px;
 align-content: center;
 justify-content: center;
@@ -197,7 +197,7 @@ align-items: center;
 }
 .first_title_tm {
 width: auto;
-font-size: 12px;
+font-size: 15px;
 height: 20px;
 display: table-cell;
 vertical-align: bottom;
@@ -207,7 +207,7 @@ vertical-align: bottom;
 float: right;
 width: auto;
 height: 20px;
-font-size: 12px;
+font-size: 15px;
 margin-top: 2.5px;
 }
 
@@ -246,7 +246,7 @@ align-items: center;
 }
 #ls_text{
 display: flex;
-font-size: 12px;
+font-size: 13px;
 width: 80px;
 align-content: center;
 justify-content: center;
