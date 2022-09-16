@@ -288,6 +288,8 @@ function updatePage(data) {
             block.clone().appendTo($(left_bl)).addClass(match.team_1.map_score > x ? "win" : "");
             block.clone().appendTo(right_bl).addClass(match.team_2.map_score > x ? "win" : "");
         }
+        $("#match_one_info").show();
+        $("#match_two_info").show();
         $("#match_one_info").html(left_bl);
         $("#match_two_info").html(right_bl);
         
