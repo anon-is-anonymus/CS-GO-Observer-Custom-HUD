@@ -514,6 +514,8 @@ function updatePage(data) {
     }
 
     var ot_length = 6;
+    var team_1_timeout = 4;
+    var team_2_timeout = 4;
 
     //esea fix
     if((team_ct.score + team_t.score) > 14 && round_now <14){
@@ -688,8 +690,19 @@ function updatePage(data) {
             resetBomb();
             isDefusing = false;
         }
+        team_1_timeout = team_1_timeout_cache
+        team_2_timeout = team_2_timeout_cache
 
         if (phase.phase == "freezetime" || phase.phase.substring(0,7) == "timeout") {
+            
+            if(team_1_timeout < team_1_timeout_cache){
+                //replace win bar with "Timeout taken by team 1"
+                team_1_timeout--;
+            }
+            if(team_2_timeout < team_2_timeout_cache){
+                //replace win bar with "Timeout taken by team 2"
+                team_2_timeout--;
+            }
             if (phase.phase_ends_in > 3) {
                 if ($("#economy").css("opacity") == 0) {
                     $(".money").fadeTo(1000, 1);
