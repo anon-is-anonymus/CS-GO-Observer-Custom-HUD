@@ -523,15 +523,27 @@ function updatePage(data) {
     }
 
     //OT Count
+    //Played more than 30 rounds
+    //Add one to the OT counter
+    //Add only once per OT
+    console.log(run_once)
     if ((round_now - 30) > 0){
-        $("#round_counter").html("Round " + (round_now - 30) + "/6");
-        if ((round_now - 37) % ot_length == 0 && run_once == 0){
-            run_once = 1
+        if((round_now - 37) % ot_length == 0 && run_once == 0 && round.phase == "freezetime"){
             ot_count++
+            run_once = 1;
         }
-        if (round.phase == "over"){
-            run_once = 0
+    
+        if(run_once == 1 && round.phase == 'live'){
+            run_once = 0;
         }
+        $("#round_counter").html("Round " + (round_now - 30 - ((ot_count-1) * ot_length)) + "/6");
+        // if ((round_now - 37) % ot_length == 0 && run_once == 0){
+        //     run_once = 1
+        //     ot_count++
+        // }
+        // if (round.phase == "over"){
+        //     run_once = 0
+        // }
         if(ot_count > 0){
             $("#round_counter").css("font-size", "10px")
             $("#round_counter").html("OT: " + ot_count + " Round " + (round_now - 30 - ((ot_count-1) * ot_length)) + "/6")
@@ -690,8 +702,8 @@ function updatePage(data) {
             resetBomb();
             isDefusing = false;
         }
-        team_1_timeout = team_1_timeout_cache
-        team_2_timeout = team_2_timeout_cache
+        let team_1_timeout_cache = team_1_timeout
+        let team_2_timeout_cache = team_2_timeout
 
         if (phase.phase == "freezetime" || phase.phase.substring(0,7) == "timeout") {
             
